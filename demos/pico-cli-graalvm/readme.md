@@ -38,7 +38,7 @@
   - Un jar est juste une archive zip avec une arborescence particulière. Son utilisé principale est de contenir les .class
 - Lancer le jar `java -jar .\target\java-rest-client-1.0.jar`
 
-## GraalVM
+# GraalVM
 
 - Dans votre pom, ajouter cette balise entre les parties `dependencies` et `build`. N'oubliez pas de spécifier les propriétés: `native.maven.plugin.version` (la version la plus récente à date est la 0.9.18) et votre `mainClass`.
 
@@ -129,3 +129,12 @@
 
 - Naviguer jusqu'au dossier du projet dans ce terminal.
 - Lancer la commande: `mvn -Pnative -DskipTests package`
+
+# Liens et références
+
+- [GraalVM](https://graalvm.github.io/)
+- [picocli on graalvm](https://picocli.info/picocli-on-graalvm.html)
+- [picocli codegen maven](https://github.com/remkop/picocli/tree/main/picocli-codegen#maven)
+- [GraalVM windows doc](https://www.graalvm.org/22.3/docs/getting-started/windows/)
+- [Native Image Build Configuration](https://www.graalvm.org/22.1/reference-manual/native-image/BuildConfiguration/)
+- [Maven plugin for GraalVM Native Image building](https://graalvm.github.io/native-build-tools/latest/maven-plugin.html)
