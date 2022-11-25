@@ -129,6 +129,7 @@
 
 - Naviguer jusqu'au dossier du projet dans ce terminal.
 - Lancer la commande: `mvn -Pnative -DskipTests package`
+- Un binaire natif (.exe sous Windows) se trouvera dans le dossier `taget`.
 
 # Liens et références
 
