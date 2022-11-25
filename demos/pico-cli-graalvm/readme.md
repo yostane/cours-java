@@ -131,6 +131,20 @@
 - Lancer la commande: `mvn -Pnative -DskipTests package`
 - Un binaire natif (.exe sous Windows) se trouvera dans le dossier `taget`.
 
+# Générer une image containérisée (type docker)
+
+- Générer une image locale avec docker: `mvn compile com.google.cloud.tools:jib-maven-plugin:3.3.1:dockerBuild`
+  - Si vous utiliser podman: `` mvn compile com.google.cloud.tools:jib-maven-plugin:3.3.1:build -Dimage=picocli-demo `-Djib.dockerClient.executable="Chemon vers podman.exe" ``
+- Vérifier que l'image est bien détectée avec un `docker images` ou `podman images`
+- Préparation du registry en ligne,
+  - Pour pousser l'image sur un registry en ligne à votre nom, il faut d'abord créer un compte sur ce registry (par exemple [hub.docker.com](https://hub.docker.com/)),
+  - Créer un registry vierge (par exemple[hub.docker.com/repositories](https://hub.docker.com/repositories) puis, cliquer que **Create repository**)
+  - Ensuite se connecter depuis la ligne de commande avec `docker login` ou `podman login docker.io`
+- En local, faire un `docker images` ou `podman images` et copier le **IMAGE ID** de notre image.
+- Ensuite, faire un `docker push <IMAGE_ID> namespace/nom_repo` ou `podman push <IMAGE_ID> docker://docker.io/namespace/nom_repo`
+  - namespace correspond au nom de votre compte
+- Test l'image en faisant un `docker run namespace/nom_repo` ou `podman run docker://docker.io/namespace`
+
 # Liens et références
 
 - [GraalVM](https://graalvm.github.io/)
