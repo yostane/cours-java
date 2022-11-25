@@ -141,9 +141,15 @@
   - Créer un registry vierge (par exemple[hub.docker.com/repositories](https://hub.docker.com/repositories) puis, cliquer que **Create repository**)
   - Ensuite se connecter depuis la ligne de commande avec `docker login` ou `podman login docker.io`
 - En local, faire un `docker images` ou `podman images` et copier le **IMAGE ID** de notre image.
-- Ensuite, faire un `docker push <IMAGE_ID> namespace/nom_repo` ou `podman push <IMAGE_ID> docker://docker.io/namespace/nom_repo`
-  - namespace correspond au nom de votre compte
+- Ensuite, faire un:
+  - Docker: `docker tag <IMAGE ID> <REGISTRY>` puis `docker push <REGISTRY>`
+  - Podman: `podman push <IMAGE_ID> docker://docker.io/namespace/nom_repo` (namespace correspond au nom de votre compte)
 - Test l'image en faisant un `docker run namespace/nom_repo` ou `podman run docker://docker.io/namespace`
+  - Le passage d'arguments fonctionne également: `podman run docker://docker.io/namespace -V`
+
+Quelques réponses à des questions communes:
+
+- [Why is my image created 48+ years ago?](https://github.com/GoogleContainerTools/jib/blob/master/docs/faq.md#why-is-my-image-created-48-years-ago)
 
 # Liens et références
 
