@@ -6,6 +6,6 @@
     <title>Test</title>
   </head>
   <body>
-    <p>Hello ${ randomValue }</p>
+    <p>The sum is ${ sum }</p>
   </body>
 </html>

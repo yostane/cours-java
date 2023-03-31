@@ -1,4 +1,4 @@
-package com.example.demo.servlet;
+package org.eclipse.jakarta.hello.Servlet;
 
 import java.io.IOException;
 import java.util.Random;
