@@ -1,4 +1,4 @@
-package org.eclipse.jakarta.resource;
+package org.eclipse.jakarta.model;
 
 public class Hello {
 

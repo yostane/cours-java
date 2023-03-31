@@ -5,3 +5,13 @@ http://localhost:8080/jakartaee-hello-world/demo.html
 http://localhost:8080/jakartaee-hello-world/rvalue
 ###
 http://localhost:8080/jakartaee-hello-world/rvalue?userValue=50
+###
+http://localhost:8080/jakartaee-hello-world/rest/sample/titans
+###
+POST http://localhost:8080/jakartaee-hello-world/rest/sample/test
+Content-Type: application/json
+
+{
+    "name": "bart",
+    "age": 10
+}
