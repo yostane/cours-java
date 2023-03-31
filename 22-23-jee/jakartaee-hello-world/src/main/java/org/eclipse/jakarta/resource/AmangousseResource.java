@@ -37,7 +37,6 @@ public class AmangousseResource {
     @Path("{crewMemberName}")
     @DELETE
     public Response deleteByName(@PathParam("crewMemberName") String crewMemberName) {
-        System.out.println("name: " + crewMemberName);
         if (!crewMembers.stream().anyMatch((cm) -> cm.getName().equals(crewMemberName))) {
             return Response.status(Status.NOT_FOUND).build();
         }
