@@ -15,3 +15,23 @@ Content-Type: application/json
     "name": "bart",
     "age": 10
 }
+###
+GET http://localhost:8080/jakartaee-hello-world/rest/amangousse
+###
+POST http://localhost:8080/jakartaee-hello-world/rest/amangousse
+Content-Type: application/json
+
+{
+    "name": "bart",
+    "job": "imposteur"
+}
+###
+POST http://localhost:8080/jakartaee-hello-world/rest/amangousse
+Content-Type: application/json
+
+{
+    "name": "sonic",
+    "job": "janitor"
+}
+###
+DELETE http://localhost:8080/jakartaee-hello-world/rest/amangousse/sonic
