@@ -1,7 +1,8 @@
-package org.eclipse.jakarta.hello.Servlet;
+package org.eclipse.jakarta.servlet;
 
 import java.io.IOException;
 import java.util.Random;
+import java.util.logging.Logger;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,10 +15,16 @@ public class RandomServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         var r = new Random();
-        req.setAttribute("randomValue", r.nextInt());
-        // String value = req.getParameter("userValue");
-        // int userValue = Integer.valueOf(value);
-        // boolean hasWon = userValue
+        int generatedValue = r.nextInt(100);
+        String value = req.getParameter("userValue");
+        try {
+            int userValue = Integer.valueOf(value);
+            boolean hasWon = userValue >= generatedValue ? true : false;
+            req.setAttribute("hasWon", hasWon);
+        } catch (NumberFormatException nfe) {
+            Logger.getGlobal().warning("No Query param");
+        }
+        req.setAttribute("randomValue", generatedValue);
         this.getServletContext().getRequestDispatcher("/WEB-INF/randval.jsp").forward(req, resp);
     }
 

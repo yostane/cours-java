@@ -3,3 +3,5 @@ http://localhost:8080/jakartaee-hello-world/helloServlet
 http://localhost:8080/jakartaee-hello-world/demo.html
 ###
 http://localhost:8080/jakartaee-hello-world/rvalue
+###
+http://localhost:8080/jakartaee-hello-world/rvalue?userValue=50

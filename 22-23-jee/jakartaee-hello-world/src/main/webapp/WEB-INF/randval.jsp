@@ -6,6 +6,6 @@
     <title>Test</title>
   </head>
   <body>
-    <p>Hello ${ randomValue }</p>
+    <p>Hello ${ randomValue }. has won ? ${ hasWon }</p>
   </body>
 </html>
