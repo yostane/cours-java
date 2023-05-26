@@ -1,5 +1,16 @@
-@base_url=http://localhost:8080
-//@base_url=https://yoscours.alwaysdata.net
+//@base_url=http://localhost:8080
+@base_url=https://yoscours.alwaysdata.net
+###
+{{base_url}}/rest/books
+###
+{{base_url}}/rest/hello
+###
+POST {{base_url}}/rest/books
+Content-Type: application/json
+
+{
+    "title": "a great book"
+}
 ###
 {{base_url}}/helloServlet
 ###
