@@ -19,7 +19,6 @@ class Program2 {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-
     }
 }
 
@@ -44,9 +43,6 @@ public class MyStack2 {
     }
 
     public int pop() throws Exception {
-        if (isEmpty()) {
-            return 0;
-        }
         int value = peek();
         items.remove(items.size() - 1);
         return value;
