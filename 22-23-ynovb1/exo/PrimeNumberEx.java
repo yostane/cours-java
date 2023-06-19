@@ -1,3 +1,5 @@
+package exo;
+
 class PrimeNumberEx {
     // Tous les modulos seront calculés de 2 à n-1
     public boolean isPrimeA(int n) {
