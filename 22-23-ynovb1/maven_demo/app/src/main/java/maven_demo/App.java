@@ -8,6 +8,13 @@ public class App {
         return "Hello World!";
     }
 
+    public static double divide(double a, double b) throws ZeroException {
+        if (b == 0) {
+            throw new ZeroException();
+        }
+        return a / b;
+    }
+
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
     }

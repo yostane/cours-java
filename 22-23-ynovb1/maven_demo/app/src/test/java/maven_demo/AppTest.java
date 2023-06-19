@@ -15,8 +15,16 @@ class AppTest {
     }
 
     @Test
-    void appTestFail() {
-        App classUnderTest = new App();
-        assertEquals("Hello World", classUnderTest.getGreeting());
+    void appDivides() {
+        assertDoesNotThrow(() -> {
+            assertEquals(10, App.divide(100, 10));
+        });
+    }
+
+    @Test
+    void appCannotDivideBy0() {
+        assertThrows(ZeroException.class, () -> {
+            App.divide(100, 0);
+        });
     }
 }
