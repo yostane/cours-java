@@ -35,3 +35,23 @@ Content-Type: application/json
 }
 ###
 DELETE http://localhost:8080/jakartaee-hello-world/rest/amangousse/sonic
+###
+GET http://localhost:8080/jakartaee-hello-world/rest/amangousse-ejb
+###
+POST http://localhost:8080/jakartaee-hello-world/rest/amangousse-ejb
+Content-Type: application/json
+
+{
+    "name": "bart",
+    "job": "imposteur"
+}
+###
+POST http://localhost:8080/jakartaee-hello-world/rest/amangousse-ejb
+Content-Type: application/json
+
+{
+    "name": "sonic",
+    "job": "janitor"
+}
+###
+DELETE http://localhost:8080/jakartaee-hello-world/rest/amangousse-ejb/sonic
