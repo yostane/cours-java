@@ -7,7 +7,7 @@
   <head>
     <title>Première page JSP</title>
     <!-- https://docs.oracle.com/javaee/5/tutorial/doc/bnajb.html -->
-    <%@ include file="favicon-head.jspf" %>
+    <%@ include file="default-head.jspf" %>
   </head>
   <body>
     <p>

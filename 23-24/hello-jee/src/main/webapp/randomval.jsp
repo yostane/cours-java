@@ -4,7 +4,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
   <head>
     <title>Random val</title>
-    <%@ include file="favicon-head.jspf" %>
+    <%@ include file="default-head.jspf" %>
   </head>
   <body>
     <c:set var="rnd" value="<%= java.lang.Math.random() %>" />

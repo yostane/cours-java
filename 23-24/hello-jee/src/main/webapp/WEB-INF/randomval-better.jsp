@@ -9,10 +9,14 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
   <body>
     <h1>
       <c:choose>
-        <c:when test="${hasWon}"> Gagné 🏆 </c:when>
+        <c:when test="${hasWon}"> Gagné 🏆 </span></c:when>
         <c:otherwise> Perdu 😱 </c:otherwise>
       </c:choose>
     </h1>
+    <h1>
+      En ternaire: ${hasWon ? "Gagné 🏆" : "Perdu 😱"}
+    </h1>
+
     <p>Random value was: ${randVal}</p>
   </body>
 </html>
