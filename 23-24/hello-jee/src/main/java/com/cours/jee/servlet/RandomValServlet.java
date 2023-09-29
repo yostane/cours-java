@@ -17,6 +17,7 @@ public class RandomValServlet extends HttpServlet {
         double randVal = RandomGenerator.getDefault().nextDouble();
         boolean hasWon = randVal > 0.5;
         req.setAttribute("hasWon", hasWon);
+        req.setAttribute("randVal", randVal);
         req.getRequestDispatcher("/WEB-INF/randomval-better.jsp").forward(req, resp);
     }
 

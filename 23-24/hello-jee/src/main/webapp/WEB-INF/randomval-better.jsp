@@ -13,5 +13,6 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
         <c:otherwise> Perdu 😱 </c:otherwise>
       </c:choose>
     </h1>
+    <p>Random value was: ${randVal}</p>
   </body>
 </html>
