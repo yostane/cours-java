@@ -6,8 +6,6 @@
 
 ## Série 1
 
-a
-
 ## Corrigés série 1
 
 ## Série 2
