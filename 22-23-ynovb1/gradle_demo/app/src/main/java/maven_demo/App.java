@@ -4,18 +4,16 @@
 package maven_demo;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
-    public static double divide(double a, double b) throws ZeroException {
-        if (b == 0) {
-            throw new ZeroException();
+    public static String getQuestion(String sentence) throws Exception {
+        if (sentence == null) {
+            throw new Exception();
         }
-        return a / b;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        if (sentence.length() == 0) {
+            throw new Exception("Oups");
+        }
+        if (sentence.charAt(sentence.length() - 1) == '?') {
+            throw new Exception("Aie");
+        }
+        return sentence + "?";
     }
 }

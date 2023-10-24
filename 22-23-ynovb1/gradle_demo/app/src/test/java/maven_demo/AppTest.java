@@ -8,23 +8,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
     @Test
-    void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
-        assertEquals("Hello World!", classUnderTest.getGreeting());
+    void appTest1() {
+        try {
+            assertEquals(null, App.getQuestion(null));
+        } catch (Exception e) {
+            assertEquals(true, true);
+        }
     }
 
     @Test
-    void appDivides() {
+    void appTest2() {
         assertDoesNotThrow(() -> {
-            assertEquals(10, App.divide(100, 10));
+            assertEquals("ça va ?", App.getQuestion("ça va"));
         });
     }
 
     @Test
-    void appCannotDivideBy0() {
-        assertThrows(ZeroException.class, () -> {
-            App.divide(100, 0);
+    void appTest3() {
+        assertDoesNotThrow(() -> {
+            assertEquals("?", App.getQuestion(""));
         });
     }
 }
