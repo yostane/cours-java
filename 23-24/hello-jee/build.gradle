@@ -1,6 +1,6 @@
 plugins {
     id 'war'
-    id 'io.openliberty.tools.gradle.Liberty' version '3.6.2'
+    id 'io.openliberty.tools.gradle.Liberty' version '3.7'
 }
 
 version '1.0-SNAPSHOT'
@@ -20,7 +20,9 @@ dependencies {
     // provided dependencies
     providedCompile 'jakarta.platform:jakarta.jakartaee-api:10.0.0' 
     
-
+    // test dependencies
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    testImplementation 'org.apache.httpcomponents:httpclient:4.5.14'
 }
 
 clean.dependsOn 'libertyStop'
