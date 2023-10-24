@@ -1,0 +1,64 @@
+site_name: Cours de développement en Python
+site_url: https://yostane.github.io/cours-java/
+repo_url: https://github.com/yostane/cours-java
+repo_name: yostane/cours-java
+edit_uri: ""
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/yostane
+
+nav:
+  - Introduction: index.md
+  - Tour du langage: java-tour.md
+  - Exercices: java-exercices.md
+  - JEE: JEE.md
+
+plugins:
+  - search
+  - glightbox
+
+theme:
+  logo: img/logo.png
+  favicon: img/logo.png
+  name: material
+  features:
+    - navigation.top
+    - navigation.indexes
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - scheme: default
+      media: "(prefers-color-scheme: light)"
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+      primary: deep purple
+      accent: cyan
+    - scheme: slate
+      media: "(prefers-color-scheme: dark)"
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: lime
+      accent: green
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - def_list
+  - pymdownx.inlinehilite
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.snippets:
+      base_path: ["includes", "material/tour", "material/poo"]
+      auto_append:
+        - "includes/abbreviations.md"
