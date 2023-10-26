@@ -58,7 +58,7 @@
       <!-- Serveur embarqué -->
       <groupId>org.apache.derby</groupId>
       <artifactId>derbytools</artifactId>
-      <version>${derby.version}</version>
+      <version>10.16.1.1</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
