@@ -13,6 +13,7 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <derby.version>10.16.1.1</derby.version>
   </properties>
 
   <dependencies>
@@ -54,11 +55,22 @@
       <version>3.24.2</version>
       <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+    <dependency>
+      <!-- Driver -->
+      <groupId>org.apache.derby</groupId>
+      <artifactId>derby</artifactId>
+      <version>${derby.version}</version>
+      <!-- provided signifie que la lib ne sera pas utilisée pour la compilcation mais
+			uniquement au runtime -->
+      <!-- La lib sera copiée dans le serveur (voir plus bas) -->
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <!-- Serveur embarqué -->
       <groupId>org.apache.derby</groupId>
       <artifactId>derbytools</artifactId>
-      <version>10.16.1.1</version>
+      <version>${derby.version}</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>

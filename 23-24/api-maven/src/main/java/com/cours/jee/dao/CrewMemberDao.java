@@ -16,7 +16,7 @@ public class CrewMemberDao {
 
   public List<CrewMember> getAll() {
     // JPQL (on met les noms des classes au lieu des noms des tables)
-    return entityManager.createQuery("SELECT cm from CrewMember", CrewMember.class).getResultList();
+    return entityManager.createQuery("SELECT cm FROM CrewMember cm", CrewMember.class).getResultList();
   }
 
   public void add(CrewMember crewMember) {
