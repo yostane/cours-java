@@ -54,6 +54,13 @@
       <version>3.24.2</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <!-- Serveur embarqué -->
+      <groupId>org.apache.derby</groupId>
+      <artifactId>derbytools</artifactId>
+      <version>${derby.version}</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -69,6 +76,23 @@
           <groupId>io.openliberty.tools</groupId>
           <artifactId>liberty-maven-plugin</artifactId>
           <version>3.9</version>
+          <!-- Télécharger la lib de la BDD embarquée et l'embarquer dans le dossier de
+          l'application -->
+          <configuration>
+            <copyDependencies>
+              <!-- Mettre les libs de BDD (driver et serveur) dans le dossier du serveur
+              OpenLiberty -->
+              <location>${project.build.directory}/liberty/wlp/usr/shared/resources</location>
+              <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derby</artifactId>
+              </dependency>
+              <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derbytools</artifactId>
+              </dependency>
+            </copyDependencies>
+          </configuration>
         </plugin>
         <!-- Plugin to run integration tests -->
         <plugin>

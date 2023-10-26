@@ -1,1 +1,3 @@
 http://localhost:8080/api/ping
+###
+http://localhost:8080/api/calculator

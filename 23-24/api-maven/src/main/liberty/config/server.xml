@@ -30,4 +30,16 @@
   <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
   <!-- location="[atrifactid dans le pom].war" -->
   <webApplication contextRoot="/" location="api-maven.war" />
+
+  <!-- Derby Library Configuration -->
+  <library id="derbyJDBCLib">
+    <!-- Le jar a été téléchargé et copié dans ce dossier via le plugin maven (voir le pom) -->
+    <fileset dir="${shared.resource.dir}/" includes="derby*.jar" />
+  </library>
+
+  <!-- Définition du datasource -->
+  <dataSource id="eventjpadatasource" jndiName="jdbc/eventjpadatasource">
+    <jdbcDriver libraryRef="derbyJDBCLib" />
+    <properties.derby.embedded databaseName="EventDB" createDatabase="create" />
+  </dataSource>
 </server>
