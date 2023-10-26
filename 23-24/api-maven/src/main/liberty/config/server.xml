@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <server description="new server">
-    <featureManager>
-        <!-- pour faire des API REST -->
-        <feature>restfulWS-3.1</feature>
-        <!-- pour parser le JSON -->
-        <feature>jsonb-3.0</feature>
-        <feature>jsonp-2.1</feature>
-        <!-- Injection de dépendances -->
-        <feature>cdi-4.0</feature>
-        <!-- JSP -->
-        <feature>pages-3.1</feature>
-        <!-- servlets -->
-        <feature>servlet-6.0</feature>
-        <!-- JPA -->
-        <feature>persistence-3.1</feature>
-    </featureManager>
+  <featureManager>
+    <!-- pour faire des API REST -->
+    <feature>restfulWS-3.1</feature>
+    <!-- pour parser le JSON -->
+    <feature>jsonb-3.0</feature>
+    <feature>jsonp-2.1</feature>
+    <!-- Injection de dépendances -->
+    <feature>cdi-4.0</feature>
+    <!-- JSP -->
+    <feature>pages-3.1</feature>
+    <!-- servlets -->
+    <feature>servlet-6.0</feature>
+    <!-- JPA -->
+    <feature>persistence-3.1</feature>
+  </featureManager>
 
-    <variable name="env.PORT" defaultValue="8080" />
-    <variable name="env.HOST" defaultValue="localhost" />
+  <!-- <logging traceFileName="stdout" /> -->
 
-    <httpEndpoint id="defaultHttpEndpoint"
-        host="${env.HOST}"
-        httpPort="${env.PORT}" />
+  <variable name="env.PORT" defaultValue="8080" />
+  <variable name="env.HOST" defaultValue="localhost" />
 
-    <applicationManager autoExpand="true" />
+  <httpEndpoint id="defaultHttpEndpoint"
+    host="${env.HOST}"
+    httpPort="${env.PORT}" />
 
-    <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
-    <!-- location="[atrifactid dans le pom].war" -->
-    <webApplication contextRoot="/" location="api-maven.war" />
+  <applicationManager autoExpand="true" />
+
+  <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
+  <!-- location="[atrifactid dans le pom].war" -->
+  <webApplication contextRoot="/" location="api-maven.war" />
 </server>

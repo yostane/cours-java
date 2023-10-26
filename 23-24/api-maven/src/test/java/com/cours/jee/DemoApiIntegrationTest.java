@@ -2,10 +2,8 @@ package com.cours.jee;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.Properties;
+import org.junit.jupiter.api.Assertions;
 
-import jakarta.json.bind.Jsonb;
-import jakarta.json.bind.JsonbBuilder;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.WebTarget;
@@ -16,23 +14,22 @@ import org.junit.jupiter.api.Test;
 import com.cours.jee.model.Message;
 
 public class DemoApiIntegrationTest {
-    String port = "8080";
-    String url = "http://localhost:" + port + "/";
+  String url = "http://localhost:8080";
 
-    @Test
-    public void testPing() {
-        Client client = ClientBuilder.newClient();
+  @Test
+  public void testPing() {
+    Client client = ClientBuilder.newClient();
 
-        WebTarget target = client.target(url + "api/ping");
-        Response response = target.request().get();
+    WebTarget target = client.target(url + "/api/ping");
+    Response response = target.request().get();
 
-        assertEquals(Response.Status.OK.getStatusCode(), response.getStatus(),
-                "Incorrect response code from " + url);
+    assertEquals(Response.Status.OK.getStatusCode(), response.getStatus(),
+        "Incorrect response code from " + url);
 
-        Message json = response.readEntity(Message.class);
+    Message json = response.readEntity(Message.class);
 
-        assertEquals("Rest API is running", json.getValue());
-        response.close();
-        client.close();
-    }
+    org.assertj.core.api.Assertions.assertThat(json.getValue()).isEqualTo("Rest API is running");
+    response.close();
+    client.close();
+  }
 }
