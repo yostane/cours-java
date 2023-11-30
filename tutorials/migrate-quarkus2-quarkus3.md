@@ -63,7 +63,8 @@ Our implementation of `compareTo(other: CompositeKey)` compares only `reference`
 
 ```kotlin
 override fun compareTo(other: CompositeKey) 
-  = (reference + otherCompositeKey).compareTo(reference + otherCompositeKey)
+  = (reference + otherCompositeKey)
+    .compareTo(other.reference + other.otherCompositeKey)
 ```
 
 What do you think ?
