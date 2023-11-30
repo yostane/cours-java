@@ -52,7 +52,7 @@ data class CompositeKey(var reference: String = "", var otherCompositeKey: Other
 }
 ```
 
-Our implementation of `compareTo(other: CompositeKey)` compares only `reference` field instead of using both fields of the composite key. This works fine for us (at least for now) because we use UUIDs for `reference`s, and it's very rare to get the same UUID twice. Maybe in the future we'll implment a more correct `compareTo` like this one : `override fun compareTo(other: CompositeKey) = (reference + otherCompositeKey).compareTo(reference + OtherCompositeKey)`. What do you think ?
+Our implementation of `compareTo(other: CompositeKey)` compares only `reference` field instead of using both fields of the composite key. This works fine for us (at least for now) because we use UUIDs for `reference`s, and it's very rare to get a [duplicate UUID](https://stackoverflow.com/questions/2513573/how-good-is-javas-uuid-randomuuid). Maybe in the future we'll implment a more correct `compareTo` like this one : `override fun compareTo(other: CompositeKey) = (reference + otherCompositeKey).compareTo(reference + OtherCompositeKey)`. What do you think ?
 
 ### Implicit foreing column names not working anymore
 
