@@ -35,24 +35,38 @@ Here is a listing of the errors that we got and how we fixed them:
 
 ### Composite keys new requirement
 
-Composite Keys require to implement Comparable or they fail to instantiante at runtime.
+Composite keys require to implement `Comparable` or they fail to instantiante at runtime.
 
-```kt
+```kotlin
 // before: fails on Quarkus 3 (with Hibernate 6)
-data class CompositeKey(var reference: String = "", var session: OtherCompositeKey = OtherCompositeKey() : Serializable
+data class CompositeKey(
+  var reference: String = "", 
+  var session: OtherCompositeKey = OtherCompositeKey()
+  ) : Serializable
 ```
 
 To fix this, we made our composite keys implement `Comparable` as follows:
 
-```kt
+```kotlin
 // after
-data class CompositeKey(var reference: String = "", var otherCompositeKey: OtherCompositeKey = OtherCompositeKey() : Serializable, Comparable<CompositeKey> {
+data class CompositeKey(
+  var reference: String = "",
+  var otherCompositeKey: OtherCompositeKey = OtherCompositeKey()
+  ) : Serializable, Comparable<CompositeKey> {
     // Comparing reference works in our case becase we use a UUID 
-    override fun compareTo(other: CompositeKey) = reference.compareTo(other.reference)
+    override fun compareTo(other: CompositeKey) 
+      = reference.compareTo(other.reference)
 }
 ```
 
-Our implementation of `compareTo(other: CompositeKey)` compares only `reference` field instead of using both fields of the composite key. This works fine for us (at least for now) because we use UUIDs for `reference`s, and it's very rare to get a [duplicate UUID](https://stackoverflow.com/questions/2513573/how-good-is-javas-uuid-randomuuid). Maybe in the future we'll implment a more correct `compareTo` like this one : `override fun compareTo(other: CompositeKey) = (reference + otherCompositeKey).compareTo(reference + OtherCompositeKey)`. What do you think ?
+Our implementation of `compareTo(other: CompositeKey)` compares only `reference` field instead of using both fields of the composite key. This works fine for us (at least for now) because we use UUIDs for `reference`s, and it's very rare to get a [duplicate UUID](https://stackoverflow.com/questions/2513573/how-good-is-javas-uuid-randomuuid). Maybe in the future we'll implment a more correct `compareTo` like this one : 
+
+```kotlin
+override fun compareTo(other: CompositeKey) 
+  = (reference + otherCompositeKey).compareTo(reference + OtherCompositeKey)
+```
+
+What do you think ?
 
 ### Implicit foreing column names not working anymore
 
@@ -60,7 +74,7 @@ We had JPQL queries that reference foreign columns and we used the names generat
 
 It looks like we could have fixed this using the `foreignKey` attribute of the `@JoinColumn` annotation as explained [in this post](https://stackoverflow.com/a/30121636).
 
-```kt
+```kotlin
 @ManyToOne
 @JoinColumn(name = "edition_id", foreignKey = @ForeignKey(name="edition_reference"))
 private Edition editionReference;
@@ -76,7 +90,7 @@ Non-lazy (or eager) OneToMany fields started to generate cryptic errors. A [fort
 
 We were using a `@GeneratedValue` which was referncing an automatically generated sequence by hibernate which is called `hibernate_sequence`. 
 
-```kt
+```kotlin
 @Id
 @GeneratedValue(
     strategy = GenerationType.SEQUENCE,
