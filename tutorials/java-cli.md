@@ -1,3 +1,5 @@
+# Getting started with Java development on the command line
+
 There are many great GUI tools specifically tailored to make Java Development easier and more fun. The first ones that come to our mind are IDEs such as IntelliJ, VSCode or Eclipise. On the non GUI side, we find also great tools that imporve our DX (developer experience)
 
 As a terminal lover, let me share with you some CLI tools that'll make java development a breez.
@@ -11,7 +13,7 @@ With Java releasing a new version each 6 months, having a propert JDK version ma
 
 IN addition to providing commands that easily switvh between JDS versions, these tools also allow to install other Java related tools such as maven, gradle, Kotlin, etc.
 
-## Creating general purpose projects
+## Creating projects
 
 In this section, I recommend two tools to create and manage Java projects from the command line.
 
@@ -46,6 +48,8 @@ qmetrics = Quarkus Metrics template
 qrest = Quarkus REST template
 readme.md = Basic markdown readme template
 ```
+
+The `cli` template create a starter project with `picocli` which is a great library for creating console apps that rely on command-line arguments.
 
 I personally used JBang to create Java proects to solve some advent of codoe challenges and I it was really useful for this use case.
 
@@ -95,7 +99,7 @@ Project name (default: gradle-java): # Leave default to use the folder name as t
 
 Source package (default: gradle.java): # Leave default to use the suggested package name
 
-Enter target version of Java (min. 7) (default: 17):
+Enter target version of Java (min. 7) (default: 17): # Leave default to use your current Java version
 
 Generate build using new APIs and behavior (some features may change in the next minor release)? (default: no) [yes, no]
 
@@ -107,11 +111,63 @@ BUILD SUCCESSFUL in 31s
 2 actionable tasks: 2 executed
 ```
 
-## Server-side development
+The direcrtory structure is simialr to what we we find is typical gradle and maven projects.
 
-- Spring boot
-- Quarkus
-- JEE with Open Liberty
+```sh
+│   .gitattributes
+│   .gitignore
+│   gradlew
+│   gradlew.bat
+│   settings.gradle.kts
+│
+├───app
+│   │   build.gradle.kts
+│   │
+│   └───src
+│       ├───main
+│       │   ├───java
+│       │   │   └───gradle
+│       │   │       └───java
+│       │   │               App.java
+│       │   │
+│       │   └───resources
+│       └───test
+│           ├───java
+│           │   └───gradle
+│           │       └───java
+│           │               AppTest.java
+│           │
+│           └───resources
+└───gradle
+    │   libs.versions.toml
+    │
+    └───wrapper
+            gradle-wrapper.jar
+            gradle-wrapper.properties
+```
+
+We note that even a test case is provided out of the box.
+Once the project is created, we can run it using `gradle run` and launch the tests using `gradle test`.
+
+### JBang vs Gradle
+
+Both Gradle init and JBang support languagues other than Java, namely Groovy and Kotlin. But JBnag support is still experimenal and `gradle init` supports more languages (such as c++ and swift).
+
+JBang is adapted for small Java projects or to use its exclusive templates.
+For example, and as far as I know, only JBang provides a `picocli` starter.
+
+For larger projects that want to start from scratch and follow a state of the art structure `gradle init` is a better choice.
+
+For large or complex projects using a server side framework, it is better to create a proiect:
+
+- Spring boot: [spring initializr](https://start.spring.io/) or [Spring Boot CLI](https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html)
+- Quarkus: [code.quarkus.io](https://code.quarkus.io/) or [Quarkus cli](https://quarkus.io/guides/cli-tooling)
+- JEE: Here is a selection of starters. [Open Liberty starter](https://openliberty.io/start/), [Eclipse starter for Jakarta EE](https://start.jakarta.ee/), [Wildlfy quickstart projects on GitHub](https://github.com/wildfly/quickstart)
+
+Compared to JBang, `gradle init` is more complex but inline with usual Java projects.
+For
+
+## Server-side development
 
 ## Front-end development
 
