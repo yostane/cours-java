@@ -1,17 +1,53 @@
-# Getting started with Java development on the command line
+# Boost your Java productivity on the command-line: Installing and creating projects
 
-There are many great GUI tools specifically tailored to make Java Development easier and more fun. The first ones that come to our mind are IDEs such as IntelliJ, VSCode or Eclipise. On the non GUI side, we find also great tools that imporve our DX (developer experience)
+There are many great GUI tools specifically tailored to make Java Development easier and more fun. The first ones that come to our mind are IDEs such as IntelliJ, VSCode or Eclipise.
+On the non GUI side, we also find great tools that imporve our DX (developer experience)
 
-As a terminal lover, let me share with you some CLI tools that'll make java development a breez.
+As a terminal lover, let me share with you some CLI tools that'll make java development a breeze.
+We'll focus on installing the JDK and some tools as well bootstraping projects.
+You can still use your favorite IDE to develop as usual.
 
 ## JDK version management
 
-With Java releasing a new version each 6 months, having a propert JDK version management is a must. I recommand these two tools depending on your OS.
+With Java releasing a new version each 6 months and with all the available JDK distributions, having a proper JDK version management is a must.
+Thus, I strongly discourage to install a JDK using an installer but rather use a an intermediary tools that will allow to list all available JDKs and install the ones that we want.
+I recommend these two tools depending on your OS.
 
-- On Windows: [scoop](https://scoop.sh/)
+- On Windows: [scoop](https://scoop.sh/) and its [Java wiki](https://github.com/ScoopInstaller/Scoop/wiki/Java)
 - On Linux and macOS: [SDKMAN!](https://sdkman.io/)
 
-IN addition to providing commands that easily switvh between JDS versions, these tools also allow to install other Java related tools such as maven, gradle, Kotlin, etc.
+In addition to listing and installing JDKs with different version and providers.
+These tools also allow easily change the JDKs used across the system (by updating JAVA_HOME and PATH environment variables) an even install other Java related tools such as maven, gradle, Kotlin, etc.
+
+For example, to list the available JDKs using scoop, we run `scoop search jdk` to get an output similar the following one:
+
+```sh
+...
+temurin17-nightly-jdk     17.0.10-6.0.202312241232  java
+temurin18-jdk             18.0.2-101                java
+temurin18-nightly-jdk     18.0.2-101.0.202210032342 java
+temurin19-jdk             19.0.2-7                  java
+temurin19-nightly-jdk     19.0.2-7.0.202302250348   java
+temurin20-jdk             20.0.2-9                  java
+temurin21-jdk             21.0.1-12.1               java
+temurin8-jdk              8.0.392-8                 java
+temurin8-nightly-jdk      8.0.402-5.0.202312251854  java
+zulu-jdk                  21.30.15                  java
+zulu10-jdk                10.3.5                    java
+zulu11-jdk                11.68.17                  java
+zulu12-jdk                12.3.11                   java
+zulu13-jdk                13.54.17                  java
+zulu14-jdk                14.29.23                  java
+...
+```
+
+Regarding which JDK to install, there are plenty of choices.
+The general and logical recommendation for me is to use the latest LTS release and a distribution which provides the best balance of features (license, community, performance, security updates, etc.).
+In this regard, I sometimes use Zulu JDK or Temurin JDK.
+This seems to be in-line with
+[whichjdk.com](https://whichjdk.com/) which recommends to use [Adoptium Eclipse Temurin 21](https://whichjdk.com/#adoptium-eclipse-temurin) (which superseeds adoptopenjdk) at the time of writing where Java 21 is the current LTS.
+
+So let's install Temurin with scoop `scoop install temurin21-jdk` or with SDKMAN! `sdk install java 21.0.1-tem`.
 
 ## Creating projects
 
@@ -167,8 +203,8 @@ For large or complex projects using a server side framework, it is better to cre
 Compared to JBang, `gradle init` is more complex but inline with usual Java projects.
 For
 
-## Server-side development
+## Conclusion
 
-## Front-end development
+## Links
 
-JavaFX
+- [Which Java JDK Should You Use?](https://incusdata.com/blog/which-java-jdk-should-you-use)
