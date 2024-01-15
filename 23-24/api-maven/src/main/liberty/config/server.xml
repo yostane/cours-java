@@ -42,4 +42,22 @@
     <jdbcDriver libraryRef="derbyJDBCLib" />
     <properties.derby.embedded databaseName="EventDB" createDatabase="create" />
   </dataSource>
+
+  <!-- postgressql -->
+  <dataSource id="pgsqlDataSrouce"
+    jndiName="jdbc/pgsqlDataSrouce">
+    <jdbcDriver libraryRef="postgresql-library" />
+    <properties.postgresql serverName="localhost"
+      portNumber="5432"
+      databaseName="CoursDB"
+      user="postgres"
+      password="" />
+  </dataSource>
+
+  <library id="postgresql-library">
+    <fileset id="PostgreSQLFileset" dir="${shared.resource.dir}/"
+      includes="postgresql*.jar" />
+  </library>
+
+
 </server>
