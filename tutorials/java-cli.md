@@ -241,13 +241,15 @@ The project generation feature is the CLI couterpart of [start.spring.io](https:
 Below are some examples uses of the Spring Boot CLI:
 
 ```sh
-# Generate a Kotlin project that uses Gradle Kotlin build file and inclids the web-services and postgresql dependencies
+# Generate a zip file that contains Kotlin project that uses Gradle Kotlin build file and inclids the web-services and postgresql dependencies
 spring init --build gradle -l kotlin -t gradle-project-kotlin -d web-services,postgresql
 # Generate a Java 21 project that uses maven and includes the web-services and postgresql dependencies
-
+spring init -x --build maven -j 21 -a sb-cli-demo -g org.sb.test -d web-services,postgresql --description "project created with Spring Boot CLI"
 # List all possible options to initialize a project
 spring help init
 ```
+
+
 
 ## Project scaffolders
 
