@@ -236,9 +236,11 @@ For
 
 ### Spring Boot CLI and Quarkus CLI
 
-[Spring Boot CLI](https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html) allows to generate a new Spring boot project and to encode passwords (for use with Spring Security).
-The project generation feature is the CLI couterpart of [start.spring.io](https://start.spring.io/).
-Below are some examples uses of the Spring Boot CLI:
+Two of the most famous Java server frameworks, namely [Spring](https://spring.io/) and [Quarkus](https://quarkus.io/), provide CLIs tailored for their respective frameworks.
+
+[Spring Boot CLI](https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html) allows to generate new Spring boot projects and to encode passwords (for use with Spring Security).
+The project generation feature is the CLI couterpart of the web UI [start.spring.io](https://start.spring.io/).
+Below are some examples of using the Spring Boot CLI:
 
 ```sh
 # Generate a zip file that contains Kotlin project that uses Gradle Kotlin build file and inclids the web-services and postgresql dependencies
@@ -249,6 +251,37 @@ spring init -x --build maven -j 21 -a sb-cli-demo -g org.sb.test -d web-services
 spring help init
 ```
 
+Spring Boot CLI features are very basic.
+I would love having other features such as upgrading spring version and adding new dependencines.
+Maybe they'll be added in the future.
+But as it is right now, I don't need to keep it installed in my computer.
+
+[Quarkus CLI](https://quarkus.io/guides/cli-tooling) provides much more features than Spring Boot CLI.
+Not only it allows to create new Quarkus projects, but it can also be used for other lifecycle tasks: running dev mode, build for production, upgrading versions, etc.
+Thus, it be be used instread of gradle or maven for most tasks.
+This makes the developer experience with Quarkus much more universal and agnostic of the used build tool (gradle or maven).
+
+```sh
+# List available quarkus extension
+quarkus ext ls
+# Create a Quarkus app (server)
+
+# Run the app in dev mode
+
+# Create a Quarkus CLI app (with Picocli) that uses Kotlin and Gradle with Kotlin DSL
+quarkus create cli --name="quarkus-cli-demo" --kotlin --gradle-kotlin-dsl --wrapper
+# Open the folder
+cd code-with-quarkus
+# run the app with gradle
+./gradlew quarkusRun -Dquarkus.args='-c -w --val 1' --console=plain
+# Run the app with quarkus cli (this fails at the time of writing)
+quarkus run -Dquarkus.args='-c -w --val 1'
+```
+
+Quarkus CLI is a very interesting and useful tool which is a must-have for Quarkus devs.
+I personnaly used it to migrate a [Quarkus project](https://blog.worldline.tech/2023/12/26/feedback_upgrade_quarkus_2_3.html) and this tool helped me a lot!
+I was also surprised to discover that we can create a picocli app with QUarkus.
+This means that 
 
 
 ## Project scaffolders
