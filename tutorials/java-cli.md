@@ -198,7 +198,7 @@ Once the project is created, we can run it using `gradle run` and launch the tes
 
 ### Maven arcehtype:generate
 
-It allows to generate various types of Java projects from a template as long as we provide the correct project template name.
+This `maven` command allows to generate various types of Java projects from a template as long as we provide the correct project template name.
 Templates can be listed with the command `mvn archetype:generate` or by looking for them on the internet.
 Calling `mvn archetype:generate` listed more than **3000** projects, which can be a bit overwhelming for starters.
 We can also create a project from a single command by specifying it `archetypeGroupId`, `archetypeArtifactId` and `archetypeVersion`.
