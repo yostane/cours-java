@@ -102,7 +102,7 @@ To summarize, JBang is particularly adapted for education, for small projects or
 ### Gradle
 
 Gradle is project mamangement tool used by Android developers default by and also by Java developers as an alternative to maven.
-Even though it seems to be mostly used by Kotlin or Java devs, gradle is language agnostic and supports other languages as well.
+Even though it seems to be mostly used by Kotlin or Java devs, gradle is language agnostic and supports managing projects writtent in other languages as well.
 
 In addition to project management, gradle provides a `gradle init` command which bootstraps a blank or a *hello world* project.
 Let's try this out and create a Java proect from scratch.
@@ -198,10 +198,16 @@ Once the project is created, we can run it using `gradle run` and launch the tes
 
 ### Maven arcehtype:generate
 
-This `maven` command allows to generate various types of Java projects from a template as long as we provide the correct project template name.
-Templates can be listed with the command `mvn archetype:generate` or by looking for them on the internet.
-Calling `mvn archetype:generate` listed more than **3000** projects, which can be a bit overwhelming for starters.
-We can also create a project from a single command by specifying it `archetypeGroupId`, `archetypeArtifactId` and `archetypeVersion`.
+`maven` is a Java project managemement tool which existed well before `gradle`.
+It was maybe the only project mangement used by Java devs before `gradle` and `jbang` appeared.
+
+Among its features, the `maven arcehtype:generate` command allows to generate various types of projects from templates.
+The only requirement is to run the command with the correct template information: its `archetypeGroupId`, `archetypeArtifactId` and `archetypeVersion`.
+Thus, we can create a project from a single command by specifying it `archetypeGroupId`, `archetypeArtifactId` and `archetypeVersion`.
+
+Locally installed templates can be listed by running `mvn archetype:generate` and many more can be found by searching for them on the internet.
+Calling `mvn archetype:generate` on my computer listed more than **3000** projects, which can be a bit overwhelming for beginners.
+
 For example, to create a simple Java project, we run this command that we find in the official [maven website](https://maven.apache.org/archetypes/maven-archetype-quickstart/):
 
 ```sh
@@ -228,34 +234,35 @@ As you may have guessed by reading the previous section, my least favorite way o
 
 - Long commands
 - We need to look for them in the internet or in a long list of templates
-- We may find outdated templated, even from the official website
+- We may find outdated templates, even from the official website
 
 Maven being out of the way, let's continue comparing `gradle init` and JBang.
-They both support languagues other than Java, namely Groovy and Kotlin, but JBnag's support is still experimenal and `gradle init` supports more languages (such as C++ and swift).
-JBang is adapted for small Java projects or when it provides an exclusive template.
+They both support languagues other than Java, namely Groovy and Kotlin, but JBnag's support is still experimenal and `gradle init` supports more languages (such as C++ and Swift).
+JBang is adapted for small Java projects or for ones that have a template.
 For example, and as far as I know, only JBang provides a `picocli` starter.
 
-For larger projects that want to start from scratch and follow a state of the art structure `gradle init` is a better choice.
+For larger projects that want to start from scratch and want to have a folder structure, `gradle init` is a better choice.
 
-For large or complex projects using a server side framework, it is better to create a proiect:
+For large or complex projects using a server side framework, I prefer using these tools:
 
 - Spring boot: [spring initializr](https://start.spring.io/) or [Spring Boot CLI](https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html)
-- Quarkus: [code.quarkus.io](https://code.quarkus.io/) or [Quarkus cli](https://quarkus.io/guides/cli-tooling)
+- Quarkus: [code.quarkus.io](https://code.quarkus.io/) or [Quarkus CLI](https://quarkus.io/guides/cli-tooling)
 - JEE: Here is a selection of starters. [Open Liberty starter](https://openliberty.io/start/), [Eclipse starter for Jakarta EE](https://start.jakarta.ee/), [Wildlfy quickstart projects on GitHub](https://github.com/wildfly/quickstart)
 
-Compared to JBang, `gradle init` is more complex but inline with usual Java projects.
-For
+To summarize, we have many tools at our disposal and all provide great features.
+
+In next chapters, let's explore the above introduced tools.
 
 ### Spring Boot CLI and Quarkus CLI
 
 Two of the most famous Java server frameworks, namely [Spring](https://spring.io/) and [Quarkus](https://quarkus.io/), provide CLIs tailored for their respective frameworks.
 
-[Spring Boot CLI](https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html) allows to generate new Spring boot projects and to encode passwords (for use with Spring Security).
+[Spring Boot CLI](https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html) generates new Spring boot projects and encodes passwords (for use with Spring Security).
 The project generation feature is the CLI couterpart of the web UI [start.spring.io](https://start.spring.io/).
 Below are some examples of using the Spring Boot CLI:
 
 ```sh
-# Generate a zip file that contains Kotlin project that uses Gradle Kotlin build file and inclids the web-services and postgresql dependencies
+# Generate a zip file that contains a Kotlin project which uses Gradle Kotlin build file and inclids the web-services and postgresql dependencies
 spring init --build gradle -l kotlin -t gradle-project-kotlin -d web-services,postgresql
 # Generate a Java 21 project that uses maven and includes the web-services and postgresql dependencies
 spring init -x --build maven -j 21 -a sb-cli-demo -g org.sb.test -d web-services,postgresql --description "project created with Spring Boot CLI"
@@ -269,9 +276,11 @@ Maybe they'll be added in the future.
 But as it is right now, I don't need to keep it installed in my computer.
 
 [Quarkus CLI](https://quarkus.io/guides/cli-tooling) provides much more features than Spring Boot CLI.
-Not only it allows to create new Quarkus projects, but it can also be used for other lifecycle tasks: running dev mode, build for production, upgrading versions, etc.
-Thus, it be be used instread of gradle or maven for most tasks.
-This makes the developer experience with Quarkus much more universal and agnostic of the used build tool (gradle or maven).
+Not only it allows to create new Quarkus projects, but it's also able to manage other lifecycle tasks: running dev mode, building for production, upgrading versions, etc.
+Thus, it can be used instread of gradle or maven for most tasks.
+This makes the DX with Quarkus much more universal and agnostic of the underlying build tool (gradle or maven).
+
+Here are some sample uses of quarkus cli:
 
 ```sh
 # List available quarkus extension
@@ -280,6 +289,9 @@ quarkus ext ls
 
 # Run the app in dev mode
 
+```
+
+```sh
 # Create a Quarkus CLI app (with Picocli) that uses Kotlin and Gradle with Kotlin DSL
 quarkus create cli --name="quarkus-cli-demo" --kotlin --gradle-kotlin-dsl --wrapper
 # Open the folder
@@ -292,8 +304,8 @@ quarkus run -Dquarkus.args='-c -w --val 1'
 
 Quarkus CLI is a very interesting and useful tool which is a must-have for Quarkus devs.
 I personnaly used it to migrate a [Quarkus project](https://blog.worldline.tech/2023/12/26/feedback_upgrade_quarkus_2_3.html) and this tool helped me a lot!
-I was also surprised to discover that we can create a picocli app with QUarkus.
-This means that
+I was also surprised to discover that we can create a picocli app with Quarkus.
+So, please give it a try.
 
 ## Project scaffolders
 
@@ -303,16 +315,20 @@ Scaffolding goes a bit further by also generating other layers of the app (datab
 ### Yeoman
 
 Yeoman is a general purpose project scaffolder which is framework and language agnostic.
-Even though the tool itself relies on npm, it can generate any type of project as long as the corresponding project generator is available and is installed.
+Even though the tool itself relies on npm (which is installed alongside nodeJS), it can generate any type of project as long as the corresponding project generator is available.
 A project generator defines how to scaffold a set of projects.
-For example, we can find a verity of generators in the [discover page](https://yeoman.io/generators/): VSCode extensions, Office extensions, webaaps, or even servers.
+Fortunately, we can explore generators in the [discover page](https://yeoman.io/generators/).
+There we can find for example, starter projects for VSCode extensions, Office extensions, webaaps, or even servers.
 
 Anyone can create a [project generator](https://yeoman.io/authoring/) and publish it to npm so that it is available in the [yeoman search engine](https://yeoman.io/generators/).
 
-Once yeoman is installed with `npm i -g yo`, we can install a project generator.
-Let's install [generator-jvm](https://github.com/daggerok/generator-jvm) with a `npm install -g generator-jvm` to get access to some JVM project generators.
+In order to use generate a yeoman project locally, we first need to install yeoman with `npm i -g yo`.
+Next, we install the generator with `npm install -g [generator]`.
+For example, the [generator-jvm](https://github.com/daggerok/generator-jvm) can be installed `npm install -g generator-jvm` and provides some JVM project generators.
+Finally, we need to run the generator with `yo generator`
+For example, to generate a JVM project, we can run `yo jvm`.
 
-`yo jvm`
+
 
 For Java developers, there is a more tailored scaffolder based on Yeoman which is called JHispter.
 
