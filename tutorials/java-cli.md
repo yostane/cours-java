@@ -1,19 +1,20 @@
-# Boost your Java productivity on the command-line: Installing and creating projects
+# Installing and creating Java projects on the command-line for increased productivity
 
-Java Developers are blessed with many tools and libraries that make their DX easier and more fun.
+Java Developers have at their disposal many tools and libraries that make their DX (Developer eXperience) easier and more fun.
 
-As a terminal lover myself, let me share with you some CLI tools that'll make java development a breeze.
-We'll focus on installing the JDK and some tools as well bootstraping projects.
-You can even complentent your existing tooling with the ones that we'll see here.
+Being a terminal lover, let me share with you some CLI (Command Line Interface) tools that'll make installing the JDK and and bootstraping projects a breeze.
+You can even complement your existing tooling with the ones that we'll see here.
+
+💡 This post is also valid if you use Kotlin for the JVM.
 
 ## JDK version management
 
-With Java releasing a new version each 6 months and with all the available JDK distributions, having a proper JDK version management is a must.
-Thus, I strongly discourage to install a JDK using an installer but rather use a an intermediary tools that will allow to list all available JDKs and install the ones that we want.
+With Java releasing a new version every 6 months and with all the available JDK distributions, having a proper JDK version management is a must.
+Thus, I strongly discourage to install a JDK using an installer. Instead, we can use an intermediary tool that will allow to install different JDKs and change the default one whenever we want.
 I recommend these two tools depending on your OS.
 
-- On Windows: [scoop](https://scoop.sh/) with the setup inscrution in its [Java wiki](https://github.com/ScoopInstaller/Scoop/wiki/Java)
-- On Linux and macOS: [SDKMAN!](https://sdkman.io/)
+- On Windows: [scoop](https://scoop.sh/) is a package maanger which supports Java version management. It provides a [Java wiki](https://github.com/ScoopInstaller/Scoop/wiki/Java) with detailed instructions.
+- On Linux and macOS: [SDKMAN!](https://sdkman.io/) is a SDK manager specialzed in the Java ecosystem. Instructions on how to manage JDKs is [provided here](https://sdkman.io/usage).
 
 In addition to listing and installing JDKs with different version and providers, these tools can change the current active JDK in a single command (by updating JAVA_HOME and PATH environment variables).
 In the same vein, we can install in a single command other Java related tools such as maven, gradle, Kotlin, etc.
@@ -40,26 +41,28 @@ zulu14-jdk                14.29.23                  java
 ...
 ```
 
-Regarding which JDK to install, there are plenty of choices.
-The general and logical recommendation for me is to use the latest LTS release and a distribution which provides the best balance of features (license, community, performance, security updates, etc.).
-In this regard, I sometimes use Zulu JDK or Temurin JDK.
+We note that there are plenty of choices.
+My general recommendation is to use the latest LTS release and a distribution which provides the best balance of features (license, community, performance, security updates, etc.).
+In this regard, I use either Zulu JDK or Temurin JDK.
 This seems to be in-line with
-[whichjdk.com](https://whichjdk.com/) which recommends to use [Adoptium Eclipse Temurin 21](https://whichjdk.com/#adoptium-eclipse-temurin) (which superseeds adoptopenjdk) at the time of writing where Java 21 is the current LTS.
+[whichjdk.com](https://whichjdk.com/) which recommends to use [Adoptium Eclipse Temurin 21](https://whichjdk.com/#adoptium-eclipse-temurin) (which superseeds adoptopenjdk).
+Please note that Java 21 is the current LTS at the time of writing.
 
 So let's install Temurin with scoop `scoop install temurin21-jdk` or with SDKMAN! `sdk install java 21.0.1-tem`.
+Once done, you can immediatly check that with a `java --version` that the setup was successul.
 
 ## Projects managers
 
-In this section, I recommend two tools to create and manage Java projects from the command line.
+In this section, I'll show three tools for creating and managing Java projects from the command line.
 
 ### JBang
 
 [JBang](https://www.jbang.dev/) is one of the simplest and easiet ones to get started with Java.
-It allows to create self-contained source-only projects.
+In fact, it allows to create self-contained source-only projects.
+This means that a JBang project can fit in a single Java (or Kotlin) file.
+
 It also provides [an AppStore](https://www.jbang.dev/appstore/) feature which allows to run java projects shared by the community very easily.
 ⚠ Of course, every script must be verified before runnning it on your machine.
-
-To summarize, JBang is particularly adapted for education, for small projects or try available java tools throug its AppStore (as long as we make sure they are safe beforehand).
 
 JBang can be installed on Windows with [scoop](https://scoop.sh/): `scoop install jbang`, or on macOS and Linux with [SDKMAN](https://sdkman.io/) `sdk install jbang`.
 
@@ -84,18 +87,26 @@ qrest = Quarkus REST template
 readme.md = Basic markdown readme template
 ```
 
-The `cli` template create a starter project with `picocli` which is a great library for creating console apps that rely on command-line arguments.
+The `cli` template create a starter project with `picocli` which is a great library for creating console apps that consumes command-line arguments.
+
+JBang have recently introduced an experimental feature which allows to bootstrap project with the help of OpenAI's API (the one behind chatGPT).
+I couldn't try this feature as it requires an OpenAPI key, which I don't have.
+However you can find some demos on the internet and it looks promising.
 
 I personally used JBang to create Java proects to solve some advent of codoe challenges and I it was really useful for this use case.
+The JBang community was also reactive to my feedback and fixed my issues very quickly.
+Big thanks to them!
 
-JBang also allows to create AI powered projects.
+To summarize, JBang is particularly adapted for education, for small projects or to try tools or templates available in its AppStore (as long as we make sure they are safe beforehand).
 
 ### Gradle
 
-Gradle is project mamangement tools used by Android developers and by Java developers as an alternative to maven.
-Even though it is used by Kotlin or Java devs, gradle is language agnostic.
+Gradle is project mamangement tool used by Android developers default by and also by Java developers as an alternative to maven.
+Even though it seems to be mostly used by Kotlin or Java devs, gradle is language agnostic and supports other languages as well.
 
-In addition to this, gradle provides a `gradle init` command which allows to bootstrap a blank or a hello world project. Let's create a Java proect:
+In addition to project management, gradle provides a `gradle init` command which bootstraps a blank or a *hello world* project.
+Let's try this out and create a Java proect from scratch.
+The following snippet show a terminal interaction with the introduced command.
 
 ```sh
 ➜ gradle init
@@ -146,7 +157,8 @@ BUILD SUCCESSFUL in 31s
 2 actionable tasks: 2 executed
 ```
 
-The direcrtory structure is simialr to what we we find is typical gradle and maven projects.
+Once the project is genertaed, we can immediately open it or run it.
+We can verify that its direcrtory structure is simialr to what we we find is typical gradle projects.
 
 ```sh
 │   .gitattributes
@@ -281,8 +293,7 @@ quarkus run -Dquarkus.args='-c -w --val 1'
 Quarkus CLI is a very interesting and useful tool which is a must-have for Quarkus devs.
 I personnaly used it to migrate a [Quarkus project](https://blog.worldline.tech/2023/12/26/feedback_upgrade_quarkus_2_3.html) and this tool helped me a lot!
 I was also surprised to discover that we can create a picocli app with QUarkus.
-This means that 
-
+This means that
 
 ## Project scaffolders
 
