@@ -2,7 +2,7 @@
 
 - Les fonctions sont des éléments de première classe : Les fonctions sont comme des variables
 - Utilisation intensive de fonctions pures : fonction sans effet de bord, toujours le même résultat pour les mêmes entrées
-    - exemples de fonctions par pure: print (car elle change la console)
+    - exemples de fonctions par pure: `print` (car elle change la console)
 - Immutabilité
     - On ne peut pas changer la valeur d'une variable une fois initialisée
     - On ne peut pas changer les propriétés d'un object une fois instancié
