@@ -22,6 +22,14 @@ tour/ClasseInterface.java
 --8<--
 ```
 
+## Collections
+
+```py
+--8<--
+tour/CollectionDemo.java
+--8<--
+```
+
 ## Streams
 
 ```py
