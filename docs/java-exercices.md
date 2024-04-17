@@ -4,7 +4,7 @@
 
     - Ne pas de faire aider par des IA ou genAI
 
-## Série 1
+## Exercice 1
 
 - Créer une fonction qui prend un tableau d’entiers “int[] numbers” et affiche la plus grande valeur et la plus petite valeur (Il faut calculer vous-même le max et le min)
 - Générer un tableau de 10 entier aléatoires et afficher le max et le min
@@ -32,6 +32,31 @@
     --8<--
     ```
 
-## Série 2
+## Exercice 2
 
-## Source
+- On souhaite modéliser une collection de consoles et jeux rétro. Les consoles (classe `VideoGameConsole`) et les jeux rétro (classe `VideoGame`) sont des appareils de divertissement ayant les propriétés: `name`, `releaseYear` en commun. Les consoles ont en plus la propriété: `companyName` (la société qui l'a créé). Les jeux vidéos ont comme propriété supplémentaire l'éditeur du jeu (celui qui le distribue) ainsi que son développeur. On aimerait aussi savoir s'il est indépendant ou pas.
+- Définir les classes nécessaires.
+- Chaque jeu vidéo tient une liste des consoles compatibles (pour les jeux cross-platform) via la propriété: `platforms`.
+- `VideoGameConsole` contient en plus la propriété: `companyName` de type string.
+- Compléter la définition des classes et instancier les jeux et consoles suivantes:
+    - Console: `name: My first 16 bit Console`, `releaseYear: 1987`, `companyName: SEGA`
+    - Console: `name: Another 16 bit console`, `releaseYear: 1991`, `companyName: Nintendo`
+    - Console: `name: Awesome 3D console`, `releaseYear: 1996`, `companyName: Sony`
+    - Console: `name: 3D console with weird joystick`, `releaseYear: 1997`, `companyName: Nintendo`
+    - Jeu: `name: Alex Kidd`, `releaseYear: 1988`, `editor: SEGA`
+    - Jeu: `name: Sonic`, `releaseYear: 1990`, `editor: SEGA`
+    - Jeu: `name: Mario RPG`, `releaseYear: 1996`, `editor: Nintendo`
+    - Jeu: `name: Final Fantasy 6`, `releaseYear: 1994`, `editor: Square`
+
+- En utilisant les streams:
+    - Afficher les jeux sortis à partir de l'année 1990 triés par ordre croissant de l'année.
+    - Afficher le nom des consoles de la compagnie SEGA.
+    - Afficher le nom des consoles dont le nom contient le mot 16 bits.
+
+??? "Retro collection manager"
+
+    ```java
+    --8<--
+    exo/CircleCollisionDetector.java
+    --8<--
+    ```

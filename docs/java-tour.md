@@ -10,14 +10,22 @@ Nous allons faire un tour du langage Java sans forcément tout couvrir car il es
 
 ```py
 --8<--
-tour.java
+tour/Hello.java
 --8<--
 ```
 
-## Quelques caractéristiques
+## Classes, héritage et interfaces
 
-## Types et opérations de base
+```py
+--8<--
+tour/ClasseInterface.java
+--8<--
+```
 
-## Collections standards
+## Streams
 
-## Sources et références
+```py
+--8<--
+tour/StreamDemo.java
+--8<--
+```

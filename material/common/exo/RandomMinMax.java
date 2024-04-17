@@ -9,6 +9,7 @@ public class RandomMinMax {
     if (numbers.length == 0) {
       return;
     }
+
     int min = numbers[0];
     int max = numbers[0];
 
