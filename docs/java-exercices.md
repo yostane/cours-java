@@ -53,8 +53,8 @@
     - Afficher le nom des consoles de la compagnie SEGA.
     - Afficher le nom des consoles dont le nom contient le mot 16 bits.
     - Le nom du premier jeu sorti
-    - Le nombre de jeux de chaque éditeur
-    - Le minimum des années de sortie des jeux de chaque éditeur
+    - Trouver le nombre de jeux de chaque éditeur en calculant dictionnaire dont la clé est l'éditeur ou son nom et en valeur le nombre de jeux
+    - Pour chaque éditeur, l'année de sortie du premier jeu en calculant dictionnaire dont la clé est l'éditeur ou son nom et en valeur une année
 
 ??? "Corrigé"
 
