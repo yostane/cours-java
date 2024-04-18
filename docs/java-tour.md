@@ -22,6 +22,14 @@ tour/ClasseInterface.java
 --8<--
 ```
 
+## Types génériques
+
+```java
+--8<--
+tour/GenericsDemo.java
+--8<--
+```
+
 ## Collections
 
 ```java
