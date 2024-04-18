@@ -8,15 +8,15 @@ Nous allons faire un tour du langage Java sans forcément tout couvrir car il es
 
 ## Premiers pas
 
-```py
+```java
 --8<--
-tour/Hello.java
+tour/hello.java
 --8<--
 ```
 
 ## Classes, héritage et interfaces
 
-```py
+```java
 --8<--
 tour/ClasseInterface.java
 --8<--
@@ -24,7 +24,7 @@ tour/ClasseInterface.java
 
 ## Collections
 
-```py
+```java
 --8<--
 tour/CollectionDemo.java
 --8<--
@@ -32,7 +32,7 @@ tour/CollectionDemo.java
 
 ## Streams
 
-```py
+```java
 --8<--
 tour/StreamDemo.java
 --8<--
