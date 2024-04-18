@@ -56,10 +56,10 @@
     - Le nombre de jeux de chaque éditeur
     - Le minimum des années de sortie des jeux de chaque éditeur
 
-??? "Retro collection manager"
+??? "Corrigé"
 
     ```java
     --8<--
-    exo/CircleCollisionDetector.java
+    exo/RetroCollectionExercise.java
     --8<--
     ```
