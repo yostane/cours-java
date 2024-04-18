@@ -52,6 +52,9 @@
     - Afficher les jeux sortis à partir de l'année 1990 triés par ordre croissant de l'année.
     - Afficher le nom des consoles de la compagnie SEGA.
     - Afficher le nom des consoles dont le nom contient le mot 16 bits.
+    - Le nom du premier jeu sorti
+    - Le nombre de jeux de chaque éditeur
+    - Le minimum des années de sortie des jeux de chaque éditeur
 
 ??? "Retro collection manager"
 
