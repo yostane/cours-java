@@ -3,7 +3,7 @@
 import static java.lang.System.*;
 
 @FunctionalInterface
-interface MyCustomPredicate {
+interface MyCustomBiPredicate {
   boolean doSomething(int a, int b);
 }
 
@@ -12,13 +12,13 @@ public class FunctionalInterfaceDemo {
     return false;
   }
 
-  static void callPredicate(MyCustomPredicate p) {
+  static void callPredicate(MyCustomBiPredicate p) {
     System.out.println(p.doSomething(10, 0));
     System.out.println(p.doSomething(0, 0));
   }
 
   public static void main(String... args) {
-    MyCustomPredicate p = (a, b) -> a > b;
+    MyCustomBiPredicate p = (a, b) -> a > b;
     System.out.println(p.doSomething(10, 20));
     p = FunctionalInterfaceDemo::returnFalse;
     System.out.println(p.doSomething(111, 0));
