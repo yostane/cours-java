@@ -20,8 +20,8 @@ plugins:
   - glightbox
 
 theme:
-  logo: img/logo.png
-  favicon: img/logo.png
+  logo: img/logo.jpg
+  favicon: img/logo.jpg
   name: material
   features:
     - navigation.top

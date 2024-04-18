@@ -6,7 +6,7 @@ tags:
 # Bienvenue au cours "Développement Java"
 
 <figure markdown>
-  ![logo](img/logo.png)
+  ![logo](img/logo.jpg)
 </figure>
 
 ## Introduction
