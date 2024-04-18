@@ -34,14 +34,14 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-      primary: deep purple
-      accent: cyan
+      primary: yellow
+      accent: green
     - scheme: slate
       media: "(prefers-color-scheme: dark)"
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-      primary: lime
+      primary: yellow
       accent: green
 
 markdown_extensions:
