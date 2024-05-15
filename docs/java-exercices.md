@@ -80,6 +80,8 @@ Pour cet exercice, créer le projet avec `gradle init` et utiliser les annotatio
     - Si l'utilisateur saisit `h`, afficher l'historique des opérations.
     - Si l'utilisateur saisit `+`, `-`, , afficher l'historique des opérations pour cette opérande.
     - Si l'utilisateur saisit `exit`, le programme s'arrête.
+    - Si l'utilisateur saisit un entier, sa valeur est affichée et il est rajouté dans l'historique
+- Gérer les exceptions, notamment celle liées aux erreurs de saisie
 
 - Astuces: utiliser `STR.""` pour formater vos Chaînes de caractères.
 
@@ -89,11 +91,20 @@ Pour cet exercice, créer le projet avec `gradle init` et utiliser les annotatio
 7
 > 100 - 2000
 -1900
+> 42
+42
 > h
 2 + 5 = 7
 100 - 2000 = -1900
+42
 > +
 2 + 5 = 7
+> toto
+saisie incorrecte
+> 88 - 33 * 2
+saisie incorrecte
+> exit
+bye bye
 ```
 
 ## Exercice 4
@@ -132,3 +143,41 @@ Help Eva to calculate the minimum number of coins worth 1 burle she has to use, 
 ## Exercice 5
 
 Pour cet exercice, créer le projet avec `gradle init` et utiliser les annotations liées à la null safety.
+
+- Créer une classe Java `ImprovedIntCalculator` qui permet de faire des opérations arithmétiques sur des entiers à partir d'une chaîne de caractères au format `opérande1 opération opérande2 opération2 opérande3 ...` et retourne le résultat de cette opération.
+    - les opérandes sont des entiers
+    - Les opérandes écrites avec l'identifiant *mi* ou i est un entier permet de remplacer mi par le résultat dans l'historique d'indice i.
+    - Opération est soit +, -, / ou \*
+    - Utilise les streams au maximum (utiliser les boucles au minimum)
+    - / et \* sont plus prioritaires que + et -
+- Votre calculatrice mémorise toutes les opérations et leurs résultats.
+- Ecrire un programme Java qui permet de soit saisir un opération soit afficher l'historique des opérations selon les commandes de l'utilisateur.
+    - Si l'utilisateur saisit une opération du type `opérande1 opération opérande2`, afficher le résultat et l'ajouter à l'historique.
+    - Si l'utilisateur saisit `h`, afficher l'historique des opérations.
+    - Si l'utilisateur saisit `+`, `-`, , afficher l'historique des opérations pour cette opérande.
+- Gérer les exceptions, notamment celle liées aux erreurs de saisie
+
+```sh title="exemple d'exécution"
+#  '>' signifie que c'est une entrée de l'utilisateur. Ce n'est pas un symble à inclure dans votre saisie
+> 2 + 5
+7
+> 100 - 2000 + 5
+-1895
+> h
+2 + 5 = 7
+100 - 2000 + 5 = -1895
+> +
+2 + 5 = 7
+> toto
+saisie incorrecte
+> 88 - 33 * 2
+22
+> 88 - 33 * 2 / 3 + 5
+67
+> 7 + m0
+14
+> m2
+22
+> exit
+bye bye
+```
