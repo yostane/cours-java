@@ -26,6 +26,7 @@ theme:
   features:
     - navigation.top
     - navigation.indexes
+    - content.code.copy
   icon:
     repo: fontawesome/brands/github
   palette:
@@ -45,6 +46,7 @@ theme:
       accent: green
 
 markdown_extensions:
+  - pymdownx.snippets
   - abbr
   - admonition
   - pymdownx.details
@@ -58,6 +60,8 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.snippets:
       base_path: ["includes", "material/common"]
       auto_append:
