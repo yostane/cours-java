@@ -168,6 +168,7 @@ Pour cet exercice, créer le projet avec `gradle init` et utiliser les annotatio
 100 - 2000 + 5 = -1895
 > +
 2 + 5 = 7
+100 - 2000 + 5 = -1895
 > toto
 saisie incorrecte
 > 88 - 33 * 2
