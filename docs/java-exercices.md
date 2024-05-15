@@ -79,6 +79,22 @@ Pour cet exercice, créer le projet avec `gradle init` et utiliser les annotatio
     - Si l'utilisateur saisit une opération du type `opérande1 opération opérande2`, afficher le résultat et l'ajouter à l'historique.
     - Si l'utilisateur saisit `h`, afficher l'historique des opérations.
     - Si l'utilisateur saisit `+`, `-`, , afficher l'historique des opérations pour cette opérande.
+    - Si l'utilisateur saisit `exit`, le programme s'arrête.
+
+- Astuces: utiliser `STR.""` pour formater vos Chaînes de caractères.
+
+```sh title="exemple d'exécution"
+#  '>' signifie que c'est une entrée de l'utilisateur. Ce n'est pas un symble à inclure dans votre saisie
+> 2 + 5
+7
+> 100 - 2000
+-1900
+> h
+2 + 5 = 7
+100 - 2000 = -1900
+> +
+2 + 5 = 7
+```
 
 ## Exercice 4
 
@@ -112,3 +128,7 @@ Help Eva to calculate the minimum number of coins worth 1 burle she has to use, 
 2
 0
 ```
+
+## Exercice 5
+
+Pour cet exercice, créer le projet avec `gradle init` et utiliser les annotations liées à la null safety.
