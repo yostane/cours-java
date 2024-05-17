@@ -24,7 +24,7 @@ public class HistoryLineProcessor<Calculator extends AbstractIntCalculator> {
         @Nonnull var history = this.historyCalculator.getHistory();
         @Nonnull String output = history.stream().collect(Collectors.joining("\n"));
         //String output = String.join("\n", history);
-        System.out.println(output);
+        this.outputStream.println(output);
       }
       break;
       case "+":

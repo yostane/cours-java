@@ -98,3 +98,21 @@ public interface Predicate<T> {
     boolean test(T t);
 }
 ```
+
+## Null safety
+
+_Définition: la null safety est toute fonctionnalité qui permet de ne plus avoir de null pointer exception à l'exécution._
+
+Java propose deux possibilités pour aovir une sorte de null safety qui ne sont moins puissantes que ce que l'on peut trouver dans d'autres langages comme Kotlin, Swift ou TypeScript par exemple.
+
+```java title="Type optionnel"
+--8<--
+tour/OptionalDemo.java
+--8<--
+```
+
+```java title="Annotations null"
+--8<--
+tour/nonnull-annotations/app/src/main/java/org/example/App.java
+--8<--
+```

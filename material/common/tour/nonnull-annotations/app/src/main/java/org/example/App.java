@@ -9,6 +9,11 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+// Les annotations de nullabilité sont traitées par certains IDE et outils pour s'assurer avant la compilation qu'il n'y aura pas de NPE
+// Les IDE génèrent généralement un avertissement et non une erreur
+// Ces annotations sont ignorées par le compilateur Java (au moins jusqu'à la version 21)
+// Il y a aussi une multitude d'annotations fournies par différentes librairies qui peuvent créer de la confusion
+
 public class App {
 
   @Nonnull
