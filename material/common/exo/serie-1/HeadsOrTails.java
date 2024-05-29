@@ -9,9 +9,16 @@ public class HeadsOrTails {
 
   public static void main(String... args) {
 
-    var r = RandomGenerator.getDefault();
-    boolean isHeads = r.nextBoolean();
+    var randomGenerator = RandomGenerator.getDefault();
+    boolean isHeads = randomGenerator.nextBoolean();
+    // Opérateur ternaire ? : (ternainre: trois opérandes)
     String side = isHeads ? "pile" : "face";
+    // équivalent à ça
+    if (isHeads) {
+      side = "pile";
+    } else {
+      side = "face";
+    }
 
     var s = new Scanner(System.in);
     var answer = s.nextLine();

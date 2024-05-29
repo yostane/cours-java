@@ -8,8 +8,9 @@ import java.util.random.RandomGenerator;
 public class GuessNumber {
 
   public static void main(String... args) {
-    var r = RandomGenerator.getDefault();
-    int numberToGuess = r.nextInt(1, 21);
+    // var permet de faire du typage implicite
+    var randomGenerator = RandomGenerator.getDefault();
+    int numberToGuess = randomGenerator.nextInt(1, 21);
 
     Scanner scanner = new Scanner(System.in);
 
