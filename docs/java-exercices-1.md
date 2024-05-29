@@ -14,4 +14,16 @@ Créer un programme Java qui permet de jouer au jeu de "devine un nombre". Le pr
 
 ## Exercice 3
 
+Ecrire un programme Java qui permet d'afficher l'inverse d'une chaîne de caractères. Par exemple, si l'utilisateur saisit "Bonjour", le programme affiche "ruojnoB". Ne pas utiliser de méthode de la classe String (comme reverse).
+
+## Exercice 4
+
+Ecrire un programme Java qui permet de dire si une chaîne de caractères est un palindrome. Un palindrome est un mot qui se lit de la même façon de gauche à droite et de droite à gauche. Par exemple, "radar" est un palindrome. Ne pas utiliser de méthode de la classe String. Faire l'exercice avec et sans la méthode equals.
+
+## Exercice 5
+
+Ecrire un programme Java qui permet de saisir un entier et de calculer la somme de ses chiffres.
+
+## Exercice 6
+
 Créer un programme Java qui permet de saisir un entier et de vérifier si cet entier est un nombre premier.
