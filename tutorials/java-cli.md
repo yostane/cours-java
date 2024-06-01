@@ -1,4 +1,4 @@
-# Installing and creating Java projects on the command-line for increased productivity
+# A tour of CLI tools for installing Java and creating projects
 
 Java Developers have at their disposal many tools and libraries that make their DX (Developer eXperience) easier and more fun.
 
@@ -379,10 +379,8 @@ For example, Quarkus is not supported by JHipster and we need to use the [Quarku
 
 ### Advantages and drawbacks
 
-Project scaffolders allow to get a project running really fast.
-A lot of boilerplate code is already written for us.
+Project scaffolders allow to get a project running really fast where a lot of boilerplate code is already written for us.
 Thus the gain in terms of effort and time is considerable.
-
 However, the generated code may not coincide with the developer's way of coding.
 Also, some choices are very opinionated, such as the exclusive use of Spring on JHipster.
 There's also the issue of vendor-locking where we must update our project using tools provided by the scaffolder if we don't want to take the risk of breaking the dependencies.
@@ -400,14 +398,25 @@ added 801 packages, and audited 802 packages in 1m
 13 vulnerabilities (6 moderate, 7 high)
 ```
 
-So, in my opinion, scaffolders are quite relevant for short-term projects such as PoCs or when we have tight deadlines.
-For long term projects, I would avoid to use a scaffolder so that I keep more control over my code.
-Instead, I'd rather use official tools to generate the projects.
-For exmaple, for a Quarkus + Vue proejct, I'll use [Quarkus CLI](https://quarkus.io/guides/getting-started) or [code.quarkus.io](https://code.quarkus.io/) to create the Quarkus project and [vue create]() to create the Vue project.
+So, in my opinion, scaffolders are quite relevant for prototypes, PoCs or when we have tight deadlines.
+For long term projects, I would avoid to use a scaffolder so that I keep more control over my code, instead, I'd rather use official tools to generate the projects.
+For exmaple, to develope a Quarkus + Vue proejct, I'll use [Quarkus CLI](https://quarkus.io/guides/getting-started) or [code.quarkus.io](https://code.quarkus.io/) to create the Quarkus project and [vite](https://vitejs.dev/guide/) to create a Vue project.
 Of course, this is my current personal opinion which may change in the future.
 
 ## Conclusion
 
+This post has shown how to get advantage of the command line tools to install a JDK and to create new projects.
+We first have seen how to install and manage Java JDKs with `scoop` and `SDKMAN!`.
+Next, we studied some tools that create Java projects whicha are `JBang`, `gradle` and `maven`.
+After that, we have compared `Spring Boot CLI` and `Quarkus CLI` which are specialized for their respective frameworks.
+Finally, we have seen how to scaffold projects with `Yeoman`, `JHipster` and `JHipsterLite`.
+
+I have also shared my opinion on the use of these tools.
+To summarize, I recommend to use CLI tools as much as possible depending on the use case to avoid GUIs and to keep the DX as simple as possible.
+
+I hope that this post has been useful to you and that you have discovered new tools that will make your Java development experience more enjoyable.
+
 ## Links
 
 - [Which Java JDK Should You Use?](https://incusdata.com/blog/which-java-jdk-should-you-use)
+- [cropped-java-craftsman-duke image from Marcus Biel](https://marcus-biel.com/cropped-java-craftsman-duke-png/)
