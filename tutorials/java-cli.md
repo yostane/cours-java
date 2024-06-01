@@ -9,15 +9,22 @@ You can even complement your existing tooling with the ones that we'll see here.
 
 ## JDK version management
 
+Let's start with the first thing that we need to do when we want to start a Java project: installing the JDK.
+
 With Java releasing a new version every 6 months and with all the available JDK distributions, having a proper JDK version management is a must.
-Thus, I strongly discourage to install a JDK using an installer. Instead, we can use an intermediary tool that will allow to install different JDKs and change the default one whenever we want.
+Thus, I strongly discourage to install a JDK using an installer.
+In addition to that, some JDKs have license costs in production environments and we need to be careful about that.
+So, I discourage installing a JDK from search engines without proper prior knowledge, such as the one offered by [whichjdk.com](https://whichjdk.com).
+
+Instead, we can use an intermediary tool that will allow to install different JDKs and change the default one whenever we want.
+This kind of tool is called a Java version manager.
 I recommend these two tools depending on your OS.
 
 - On Windows: [scoop](https://scoop.sh/) is a package maanger which supports Java version management. It provides a [Java wiki](https://github.com/ScoopInstaller/Scoop/wiki/Java) with detailed instructions.
 - On Linux and macOS: [SDKMAN!](https://sdkman.io/) is a SDK manager specialzed in the Java ecosystem. Instructions on how to manage JDKs is [provided here](https://sdkman.io/usage).
 
-In addition to listing and installing JDKs with different version and providers, these tools can change the current active JDK in a single command (by updating JAVA_HOME and PATH environment variables).
-In the same vein, we can install in a single command other Java related tools such as maven, gradle, Kotlin, etc.
+In addition to listing and installing JDKs with different version and providers, these tools can change the current active JDK in a single command (by automatically updating JAVA_HOME and PATH environment variables).
+Furthermore, we can install in a single command other Java related tools such as maven, gradle, Kotlin, etc.
 
 For example, to list the available JDKs using scoop, we run `scoop search jdk` to get an output similar the following one:
 
@@ -44,9 +51,7 @@ zulu14-jdk                14.29.23                  java
 We note that there are plenty of choices.
 My general recommendation is to use the latest LTS release and a distribution which provides the best balance of features (license, community, performance, security updates, etc.).
 In this regard, I use either Zulu JDK or Temurin JDK.
-This seems to be in-line with
-[whichjdk.com](https://whichjdk.com/) which recommends to use [Adoptium Eclipse Temurin 21](https://whichjdk.com/#adoptium-eclipse-temurin) (which superseeds adoptopenjdk).
-Please note that Java 21 is the current LTS at the time of writing.
+This seems to be in-line with [whichjdk.com](https://whichjdk.com/) which recommends to use [Adoptium Eclipse Temurin 21](https://whichjdk.com/#adoptium-eclipse-temurin) (which superseeds adoptopenjdk) (Please note that Java 21 is the current LTS at the time of writing).
 
 So let's install Temurin with scoop `scoop install temurin21-jdk` or with SDKMAN! `sdk install java 21.0.1-tem`.
 Once done, you can immediatly check that with a `java --version` that the setup was successul.
@@ -58,15 +63,15 @@ In this section, I'll show three tools for creating and managing Java projects f
 ### JBang
 
 [JBang](https://www.jbang.dev/) is one of the simplest and easiet ones to get started with Java.
-In fact, it allows to create self-contained source-only projects.
+In fact, it allows to create self-contained source-only projects, where build configuration files are not needed.
 This means that a JBang project can fit in a single Java (or Kotlin) file.
 
-It also provides [an AppStore](https://www.jbang.dev/appstore/) feature which allows to run java projects shared by the community very easily.
-⚠ Of course, every script must be verified before runnning it on your machine.
+This tool also provides [an AppStore](https://www.jbang.dev/appstore/) feature which allows to run java projects shared by the community very easily.
+⚠ Of course, every script must be verified before running it on your machine.
 
 JBang can be installed on Windows with [scoop](https://scoop.sh/): `scoop install jbang`, or on macOS and Linux with [SDKMAN](https://sdkman.io/) `sdk install jbang`.
 
-After that, we can create a basic project with `jbang init hello.java`. We can run it with `jbang run hello.java` (On Linux and macOS, we first need to run `chmod +x hello.java`)
+After that, we can create a basic project with `jbang init hello.java`. We can run it with `jbang run hello.java` (On Linux and macOS, we first need to run `chmod +x hello.java` to make the java file executable).
 
 JBang provides many other templates that we can list with `jbang template list`.
 Here is the output of this command at the the time of writing this post.
@@ -87,13 +92,13 @@ qrest = Quarkus REST template
 readme.md = Basic markdown readme template
 ```
 
-The `cli` template create a starter project with `picocli` which is a great library for creating console apps that consumes command-line arguments.
+The `cli` template create a starter project with `picocli` which is a great library for creating console apps that consume command-line arguments.
 
-JBang have recently introduced an experimental feature which allows to bootstrap project with the help of OpenAI's API (the one behind chatGPT).
-I couldn't try this feature as it requires an OpenAPI key, which I don't have.
-However you can find some demos on the internet and it looks promising.
+Another way to create projects is use the help OpenAI's API (the one behind chatGPT) to generate one based on a prompt.
+This feature is still experimental but it looks promising as shown in [this blog post](https://www.infoq.com/news/2023/06/jbang-107/).
+I couldn't get it to work on my free key (Maybe I didn't set it up correctly).
 
-I personally used JBang to create Java proects to solve some advent of codoe challenges and I it was really useful for this use case.
+I personally used JBang to create Java projects for solving some advent of codoe challenges and it was really useful.
 The JBang community was also reactive to my feedback and fixed my issues very quickly.
 Big thanks to them!
 
@@ -101,11 +106,11 @@ To summarize, JBang is particularly adapted for education, for small projects or
 
 ### Gradle
 
-Gradle is project mamangement tool used by Android developers default by and also by Java developers as an alternative to maven.
-Even though it seems to be mostly used by Kotlin or Java devs, gradle is language agnostic and supports managing projects writtent in other languages as well.
+Gradle is project management tool used by Android developers by default and also by Java developers as an alternative to maven.
+Even though it seems to be mostly used by Kotlin or Java devs, gradle is language agnostic and supports other languages as well.
 
 In addition to project management, gradle provides a `gradle init` command which bootstraps a blank or a *hello world* project.
-Let's try this out and create a Java proect from scratch.
+Let's try this out and create a Java project from scratch.
 The following snippet show a terminal interaction with the introduced command.
 
 ```sh
@@ -157,8 +162,9 @@ BUILD SUCCESSFUL in 31s
 2 actionable tasks: 2 executed
 ```
 
-Once the project is genertaed, we can immediately open it or run it.
-We can verify that its direcrtory structure is simialr to what we we find is typical gradle projects.
+Once the project is generated, we can immediately open it or run it.
+We can verify this follows the usual gradle project structure.
+Even a test case is provided out of the box!.
 
 ```sh
 │   .gitattributes
@@ -193,22 +199,19 @@ We can verify that its direcrtory structure is simialr to what we we find is typ
             gradle-wrapper.properties
 ```
 
-We note that even a test case is provided out of the box.
 Once the project is created, we can run it using `gradle run` and launch the tests using `gradle test`.
 
 ### Maven arcehtype:generate
 
-`maven` is a Java project managemement tool which existed well before `gradle`.
-It was maybe the only project mangement used by Java devs before `gradle` and `jbang` appeared.
+`maven` is a Java project management which was predominant (who [said ant](https://stackoverflow.com/questions/39645836/did-maven-killed-the-ant-or-it-is-still-alive) ☺) before `gradle` and `jbang` appeared.
 
 Among its features, the `maven arcehtype:generate` command allows to generate various types of projects from templates.
 The only requirement is to run the command with the correct template information: its `archetypeGroupId`, `archetypeArtifactId` and `archetypeVersion`.
-Thus, we can create a project from a single command by specifying it `archetypeGroupId`, `archetypeArtifactId` and `archetypeVersion`.
 
-Locally installed templates can be listed by running `mvn archetype:generate` and many more can be found by searching for them on the internet.
+Locally installed templates can be listed by running `mvn archetype:generate` and many more can be found by searching on the internet.
 Calling `mvn archetype:generate` on my computer listed more than **3000** projects, which can be a bit overwhelming for beginners.
 
-For example, to create a simple Java project, we run this command that we find in the official [maven website](https://maven.apache.org/archetypes/maven-archetype-quickstart/):
+We must also be careful because the quantity does mean quality, for example, to create a simple Java project, we run this command that we find in the official [maven website](https://maven.apache.org/archetypes/maven-archetype-quickstart/):
 
 ```sh
 mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4
@@ -236,18 +239,16 @@ As you may have guessed by reading the previous section, my least favorite way o
 - We need to look for them in the internet or in a long list of templates
 - We may find outdated templates, even from the official website
 
-Maven being out of the way, let's continue comparing `gradle init` and JBang.
-They both support languagues other than Java, namely Groovy and Kotlin, but JBnag's support is still experimenal and `gradle init` supports more languages (such as C++ and Swift).
+Maven being out of the way, let's continue by comparing `gradle init` and JBang.
+They both support languages other than Java, namely Groovy and Kotlin, but JBnag's support for those is still experimental and `gradle init` supports more languages (such as C++ and Swift).
+
 JBang is adapted for small Java projects or for ones that have a template.
 For example, and as far as I know, only JBang provides a `picocli` starter.
-
-For larger projects that want to start from scratch and want to have a folder structure, `gradle init` is a better choice.
-
-For large or complex projects using a server side framework, I prefer using these tools:
+`gradle init` is a better choice large projects that want to start from scratch and want to have a folder structure. However, if you want to create a project with a specific Java framework, you may need to use the tools provided by the framework:
 
 - Spring boot: [spring initializr](https://start.spring.io/) or [Spring Boot CLI](https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html)
 - Quarkus: [code.quarkus.io](https://code.quarkus.io/) or [Quarkus CLI](https://quarkus.io/guides/cli-tooling)
-- JEE: Here is a selection of starters. [Open Liberty starter](https://openliberty.io/start/), [Eclipse starter for Jakarta EE](https://start.jakarta.ee/), [Wildlfy quickstart projects on GitHub](https://github.com/wildfly/quickstart)
+- JEE: [Open Liberty starter](https://openliberty.io/start/), [Eclipse starter for Jakarta EE](https://start.jakarta.ee/), [Wildlfy quickstart projects on GitHub](https://github.com/wildfly/quickstart)
 
 To summarize, we have many tools at our disposal and all provide great features.
 
@@ -255,10 +256,10 @@ In next chapters, let's explore the above introduced tools.
 
 ### Spring Boot CLI and Quarkus CLI
 
-Two of the most famous Java server frameworks, namely [Spring](https://spring.io/) and [Quarkus](https://quarkus.io/), provide CLIs tailored for their respective frameworks.
+Two of the most famous Java server frameworks, namely [Spring](https://spring.io/) and [Quarkus](https://quarkus.io/), provide CLIs for improving DX.
 
 [Spring Boot CLI](https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html) generates new Spring boot projects and encodes passwords (for use with Spring Security).
-The project generation feature is the CLI couterpart of the web UI [start.spring.io](https://start.spring.io/).
+The project generation feature is the CLI counterpart of the web UI [start.spring.io](https://start.spring.io/).
 Below are some examples of using the Spring Boot CLI:
 
 ```sh
@@ -271,13 +272,13 @@ spring help init
 ```
 
 Spring Boot CLI features are very basic.
-I would love having other features such as upgrading spring version and adding new dependencines.
-Maybe they'll be added in the future.
+Some features that I miss are upgrading spring version and adding new dependencies.
+Maybe they'll be implemented in the future.
 But as it is right now, I don't need to keep it installed in my computer.
 
 [Quarkus CLI](https://quarkus.io/guides/cli-tooling) provides much more features than Spring Boot CLI.
 Not only it allows to create new Quarkus projects, but it's also able to manage other lifecycle tasks: running dev mode, building for production, upgrading versions, etc.
-Thus, it can be used instread of gradle or maven for most tasks.
+Thus, it can be used instead of gradle or maven for most tasks.
 This makes the DX with Quarkus much more universal and agnostic of the underlying build tool (gradle or maven).
 
 Here are some sample uses of quarkus cli:
@@ -303,7 +304,7 @@ quarkus run -Dquarkus.args='-c -w --val 1'
 ```
 
 Quarkus CLI is a very interesting and useful tool which is a must-have for Quarkus devs.
-I personnaly used it to migrate a [Quarkus project](https://blog.worldline.tech/2023/12/26/feedback_upgrade_quarkus_2_3.html) and this tool helped me a lot!
+I personally used it to migrate a [Quarkus project](https://blog.worldline.tech/2023/12/26/feedback_upgrade_quarkus_2_3.html) and this tool helped me a lot!
 I was also surprised to discover that we can create a picocli app with Quarkus.
 So, please give it a try.
 
@@ -317,22 +318,64 @@ Scaffolding goes a bit further by also generating other layers of the app (datab
 Yeoman is a general purpose project scaffolder which is framework and language agnostic.
 Even though the tool itself relies on npm (which is installed alongside nodeJS), it can generate any type of project as long as the corresponding project generator is available.
 A project generator defines how to scaffold a set of projects.
-Fortunately, we can explore generators in the [discover page](https://yeoman.io/generators/).
+Fortunately for us, we can explore generators in the [discover page](https://yeoman.io/generators/) and search for the one that we need in a webUI.
 There we can find for example, starter projects for VSCode extensions, Office extensions, webaaps, or even servers.
 
 Anyone can create a [project generator](https://yeoman.io/authoring/) and publish it to npm so that it is available in the [yeoman search engine](https://yeoman.io/generators/).
 
-In order to use generate a yeoman project locally, we first need to install yeoman with `npm i -g yo`.
+In order to generate a yeoman project locally, we first need to install yeoman with `npm i -g yo`.
 Next, we install the generator with `npm install -g [generator]`.
 For example, the [generator-jvm](https://github.com/daggerok/generator-jvm) can be installed `npm install -g generator-jvm` and provides some JVM project generators.
 Finally, we need to run the generator with `yo generator`
 For example, to generate a JVM project, we can run `yo jvm`.
 
-
-
 For Java developers, there is a more tailored scaffolder based on Yeoman which is called JHispter.
 
 ### JHipster and JHipsterLite
+
+JHipster is a project scaffolder specialized in Java projects.
+It generates ready-to-use full stack projects with a database, a Java backend, a web frontend and different common service.
+The backend is based on Spring Boot with Java and the frontend is based on Angular, React or Vue.
+
+The tool works by asking questions to the user and generating the project based on the answers.
+Here is an example of the questions asked and the anwsers that I gave when creating a new project:
+
+```sh
+? What is the base name of your application? jhispterDemo
+? Which *type* of application would you like to create? Monolithic application (recommended for simple projects)
+? What is your default Java package name? com.mycompany.myapp
+? Would you like to use Maven or Gradle for building the backend? Gradle
+? Do you want to make it reactive with Spring WebFlux? Yes
+? Which *type* of authentication would you like to use? JWT authentication (stateless, with a token)
+? Besides JUnit, which testing frameworks would you like to use?
+? Which *type* of database would you like to use? SQL (H2, PostgreSQL, MySQL, MariaDB, Oracle, MSSQL)
+? Which *production* database would you like to use? PostgreSQL
+? Which *development* database would you like to use? PostgreSQL
+? Which cache do you want to use? (Spring cache abstraction) Ehcache (local cache, for a single node)
+? Do you want to use Hibernate 2nd level cache? Yes
+? Which other technologies would you like to use? Elasticsearch as search engine, Apache Kafka as asynchronous messages broker
+? Do you want to enable Gradle Enterprise integration? No
+? Which *framework* would you like to use for the client? React
+? Besides Jest/Vitest, which testing frameworks would you like to use? Cypress
+? Do you want to generate the admin UI? Yes
+? Would you like to use a Bootswatch theme (https://bootswatch.com/)? Default JHipster
+? Would you like to enable internationalization support? Yes
+? Please choose the native language of the application French
+? Please choose additional languages to install English
+? Would you like to audit Cypress tests? Yes
+```
+
+One the project is created, the database can be designed with [JDL Studio](https://start.jhipster.tech/jdl-studio/) and imported into the project.
+
+[Jhipster Lite](https://lite.jhipster.tech/) (or JHLite) is the web counterpart of JHipster.
+It is not feature-equivalent to JHipster but it allows to create a project from a web UI.
+[This page](https://www.jhipster.tech/jhipster-lite/) notes that JHLite it is better suited for designing around business and XDD approaches (eXtreme Design Driven).
+
+![JHLite landscape](jhipster-lite-landscapre.png)
+
+Both JHipster and JHLite are very useful for quickly prototyping or for projects that use the same technologies provided by them.
+However, the opinionated nature of the generated code and selected frameworks may not suit everyone.
+For example, Quarkus is not supported by JHipster and we need to use the [Quarkus CLI](https://quarkus.io/guides/cli-tooling) to generate a Quarkus project.
 
 ### Advantages and drawbacks
 
