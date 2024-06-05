@@ -30,15 +30,49 @@ Créer un programme Java qui permet de jouer au jeu de "devine un nombre". Le pr
 
 ## Exercice 3
 
-Ecrire un programme Java qui permet d'afficher l'inverse d'une chaîne de caractères. Par exemple, si l'utilisateur saisit "Bonjour", le programme affiche "ruojnoB". Ne pas utiliser de méthode de la classe String (comme reverse).
+Écrire un programme Java qui permet d'afficher l'inverse d'une chaîne de caractères. Par exemple, si l'utilisateur saisit "Bonjour", le programme affiche "ruojnoB". Ne pas utiliser de méthodes de la classe String (comme reverse).
+
+??? "Reverse a string"
+
+    ```java
+    --8<--
+    exo/serie-1/ReverseManual.java
+    --8<--
+    ```
+
+??? "Reverse many strings"
+
+    ```java
+    --8<--
+    exo/serie-1/ReverseManualMany.java
+    --8<--
+    ```
 
 ## Exercice 4
 
-Ecrire un programme Java qui permet de dire si une chaîne de caractères est un palindrome. Un palindrome est un mot qui se lit de la même façon de gauche à droite et de droite à gauche. Par exemple, "radar" est un palindrome. Ne pas utiliser de méthode de la classe String. Faire l'exercice avec et sans la méthode equals.
+Écrire un programme Java qui permet de dire si une chaîne de caractères est un palindrome. Un palindrome est un mot qui se lit de la même façon de gauche à droite et de droite à gauche. Par exemple, "radar" est un palindrome. Ne pas utiliser de méthode de la classe String. Faire l'exercice avec et sans la méthode `equals`.
+
+Exemples:
+
+-   Si on passe "radar" en entrée, le programme affiche "Palindrome"
+-   Si on passe "bonjour" en entrée, le programme affiche "Pas un palindrome"
+
+??? "Palindrome"
+
+    ```java
+    --8<--
+    exo/serie-1/Palindrome.java
+    --8<--
+    ```
 
 ## Exercice 5
 
-Ecrire un programme Java qui permet de saisir un entier et de calculer la somme de ses chiffres.
+Écrire un programme Java qui permet de saisir un nombre entier et de calculer la somme de ses chiffres. Le programme affiche la somme des chiffres ainsi que le détail du calcul.
+
+Exemples :
+
+-   Si on passe 123 en entrée, le programme affiche "6 (1 + 2 + 3 = 6)"
+-   Si on passe 1234 en entrée, le programme affiche "10 (1 + 2 + 3 + 4 = 10)"
 
 ## Exercice 6
 
