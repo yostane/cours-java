@@ -43,6 +43,12 @@ public class ArrayDemo {
     System.out.println("sum: " + sum + ", alternative sum: " + alternativeSum);
 
     // valeur max dans otherNumbers
-
+    int max = otherNumbers[0]; // attention ne pas initialiser avec 0
+    for (int i = 0; i < otherNumbers.length; i++) {
+      if (max < otherNumbers[i]) {
+        max = otherNumbers[i];
+      }
+    }
+    System.out.println("max: " + max);
   }
 }
