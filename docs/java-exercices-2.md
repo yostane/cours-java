@@ -28,6 +28,14 @@ Créer une programme Java qui met dans un tableau les 10 premiers nombres premie
 
 Rappel : un nombre premier est un nombre qui qui est divisible par exactement deux entiers disctints (qui sont 1 et le nombre-même). 0 et 1 ne sont pas des nombres premiers par définition (1 n'est pas divisible par deux nombres distincts).
 
+??? "10 premiers nombres premiers"
+
+    ```java
+    --8<--
+    exo/serie-2/First10Prime.java
+    --8<--
+    ```
+
 ## Exercice 3
 
 Créer un programme Java qui

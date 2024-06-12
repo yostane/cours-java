@@ -93,3 +93,13 @@ Exemples :
 Créer un programme Java qui permet de saisir un entier et de vérifier si cet entier est un nombre premier.
 
 Le nombre en entrée est récupéré via le `Scanner`.
+
+Rappel : un nombre premier est un nombre qui qui est divisible par exactement deux entiers disctints (qui sont 1 et le nombre-même). 0 et 1 ne sont pas des nombres premiers par définition (1 n'est pas divisible par deux nombres distincts).
+
+??? "Is prime ?"
+
+    ```java
+    --8<--
+    exo/serie-1/IsPrime.java
+    --8<--
+    ```
