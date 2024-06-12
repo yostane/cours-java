@@ -7,11 +7,15 @@ import java.util.Scanner;
 public class IsPrime {
 
   public static void main(String... args) {
-    Scanner scanner = new Scanner(System.in);
     System.out.println("Veuillez saisir un entier positif et on vous dira s'il est premier.");
-    int input = scanner.nextInt();
+
+    Scanner scanner = new Scanner(System.in);
+    long input = scanner.nextLong();
     scanner.close();
-    if (input < 2) {
+    if (input < 0) {
+      System.err.println("ce n'est pas un nombre positif");
+      exit(1);
+    } else if (input < 2) {
       System.out.println("ce n'est pas un nombre premier");
       exit(1);
     } else if (input == 2) {
@@ -19,7 +23,7 @@ public class IsPrime {
       exit(0);
     }
 
-    for (int i = 2; i < input; i++) {
+    for (long i = 2; i < input / 2; i++) {
       if (input % i == 0) {
         System.out.println("Ce n'est pas un nombre premier");
         exit(1);
