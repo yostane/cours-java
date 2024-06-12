@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "articles"
+    },
+    {
+      "path": "jbang"
+    },
+    {
+      "path": "jhispter-demo"
+    }
+  ],
+  "settings": {
+    "java.compile.nullAnalysis.mode": "automatic"
+  }
+}
