@@ -14,7 +14,7 @@ public class Schtroumph2Arrays {
         restult += mulitplication;
         System.out.print(String.format("%d x %d = %d", rightItems[i], leftItems[j], mulitplication));
         if (j < leftItems.length - 1) {
-          // Ajouter un "- " à l'affichae pour tous les éléments sauf le dernier
+          // Ajouter un ", " à l'affichage pour tous les éléments sauf le dernier
           System.out.print(", ");
         }
       }
@@ -32,7 +32,7 @@ public class Schtroumph2Arrays {
       numbers[i] = randomGenerator.nextInt(-10, 10);
       System.out.print(numbers[i]);
       if (i != length - 1) {
-        // Ajouter un ", " à l'affichae pour tous les éléments sauf le dernier
+        // Ajouter un ", " à l'affichage pour tous les éléments sauf le dernier
         System.out.print(", ");
       }
     }
