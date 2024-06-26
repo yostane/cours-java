@@ -48,7 +48,7 @@ Créer un programme Java qui génère deux tableaux aléatoires (de valeurs de e
 
 ??? "Schtroumphons 💻"
 
-    ```java
+    ```java linenums="1"
     --8<--
     exo/serie-2/Schtroumph2Arrays.java
     --8<--
