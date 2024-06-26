@@ -16,7 +16,7 @@
 
 ??? "Série 2 exo 1"
 
-    ```java
+    ```java linenums="1"
     --8<--
     exo/serie-2/Serie2Ex1.java
     --8<--
@@ -30,7 +30,7 @@ Rappel : un nombre premier est un nombre qui qui est divisible par exactement de
 
 ??? "10 premiers nombres premiers"
 
-    ```java
+    ```java linenums="1"
     --8<--
     exo/serie-2/First10Prime.java
     --8<--
