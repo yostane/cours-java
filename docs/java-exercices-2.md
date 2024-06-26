@@ -46,7 +46,7 @@ Créer un fonctione Java qui calcule le schtroumph de deux tableaux qui ne sont 
 
 Créer un programme Java qui génère deux tableaux aléatoires (de valeurs de entre -10 et 10 inclus) de taille aléatoire ( 2 <= nombre d'éléments < 5) et qui calcule leur schtroumpf.
 
-??? "10 premiers nombres premiers"
+??? "Schtroumphons 💻"
 
     ```java
     --8<--
