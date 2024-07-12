@@ -3,15 +3,17 @@
 public class VirtualThreadDemo {
 
   public static void main(String... args) throws InterruptedException {
-    Thread virtualThread = Thread.ofVirtual().start(() -> {
+    // Thread.ofVirtual().start(() -> {
+    // System.out.println(Thread.currentThread());
+    // });
+
+    // Platform (or OS) thread
+    Thread.ofPlatform().start(() -> {
       System.out.println(Thread.currentThread());
     });
 
+    // Virtual thread
     Thread.ofVirtual().start(() -> {
-      System.out.println(Thread.currentThread());
-    });
-
-    Thread osThread = Thread.ofPlatform().start(() -> {
       System.out.println(Thread.currentThread());
     });
 
