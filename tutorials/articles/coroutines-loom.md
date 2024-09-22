@@ -25,8 +25,32 @@ Loom introduces new concepts: virtual threads ([JEP 444](https://openjdk.org/jep
 Virtual threads are lightweight threads that are managed by the JVM.
 They use less memory than platform threads (the ones provided by the OS) and are more efficient for tasks that spend much of their time waiting.
 This means that virtual threads are more efficient for I/O-bound tasks such as network or file I/O.
-Is it also possible to have many more virtual threads than platform threads which is capped due to OS and hardware limitations.
+
+It is possible to have many more virtual threads than platform threads which is capped due to OS and hardware limitations.
 On the other hand, platform threads are more efficient for CPU-bound tasks.
+
+A virtual thread needs to run over at least over platform thread, also named case a carrier thread. A carrier thread can also host one or multiple virtual threads. The JDK provides
+
+The following code snippets creates a virtual thread, with `Thread.ofPlatform()`, a platform thread, with `Thread.ofVirtual()` and each prints its inforamtion:
+
+```java
+// Platform (or OS) thread
+Thread.ofPlatform().start(() -> {
+    System.out.println(Thread.currentThread());
+});
+
+// Virtual thread
+Thread.ofVirtual().start(() -> {
+    System.out.println(Thread.currentThread());
+});
+
+/* Output:
+Thread[#19,Thread-0,5,main]
+VirtualThread[#20]/runnable@ForkJoinPool-1-worker-1
+*/
+```
+
+We can note that the platform thread is managed by the main thread, while the virtual thread is managed by the [ForkJoinPool](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html). The ForkJoinPool allows to execute tasks using lighter threads than OS threads.
 
 ### Java's structured concurrency
 
