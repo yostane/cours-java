@@ -1,5 +1,5 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
-
+package hello;
 
 import static java.lang.System.*;
 
