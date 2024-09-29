@@ -1,5 +1,11 @@
 # Jbang @ DeovvMa 2024
 
+Author: Yassine Benabbas
+
+- Short link: [wrl.li/jbang-devoxxma24](https://wrl.li/jbang-devoxxma24)
+
+![qrcode](./qrcode.png)
+
 ## Easy Setup
 
 - Windows via scoop: `scoop install jbang`
@@ -94,3 +100,4 @@
 - [jfiglet](https://github.com/lalyos/jfiglet)
 - [fusesource/jansi](https://github.com/fusesource/jansi)
 - [Java 23 Implicitly Declared Classes and Instance Main Methods](https://docs.oracle.com/en/java/javase/23/language/implicitly-declared-classes-and-instance-main-methods.html)
+- [baeldung.com/jbang](https://www.baeldung.com/jbang-guide)
