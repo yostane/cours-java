@@ -1,0 +1,5 @@
+http://localhost:8080/palindrome?input=madam
+###
+http://localhost:8080/q/openapi
+###
+http://localhost:8080/q/swagger-ui
