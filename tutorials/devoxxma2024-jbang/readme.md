@@ -84,8 +84,8 @@ Author: Yassine Benabbas
 
 ## App Store
 
-- [HanSolo/jbang-catalog](https://github.com/HanSolo/jbang-catalog/blob/390effcbf265f240bfdc229b75b57617193da067/jbang-catalog.json)
-  does not work when I tested
+- [HanSolo/jbang-catalog](https://github.com/HanSolo/jbang-catalog/blob/390effcbf265f240bfdc229b75b57617193da067/jbang-catalog.json) (some scripts did not work)
+  - `jbang discocli@HanSolo/jbang-catalog`
 - Cowsay
   - `jbang cowsay@ricksbrown/cowsay MOO!`
   - `jbang cowsay@ricksbrown/cowsay --cowthink Moo`
@@ -109,6 +109,13 @@ Author: Yassine Benabbas
 
 - [JBang](https://www.jbang.dev/documentation/guide/latest/faq.html) name comes from the Java Shebang feature
 - [JBang](https://www.jbang.dev/documentation/guide/latest/faq.html) came from the idea of porting kscript to Java
+
+## Conclusion (as of Devoxx MA 2024)
+
+- Very powerful tool for scripting and single-file projects on the Java ecosystem
+- Still young but very promising and can be used for many use cases
+- Templating, AppStore and Catalogs add a layer of sharing and contribution
+- Java can also Do single file APIs, CLIs, and more 🎉 
 
 ## Credits and resources
 
