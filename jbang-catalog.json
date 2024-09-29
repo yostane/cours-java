@@ -1,0 +1,13 @@
+{
+	"catalogs": {},
+	"aliases": {
+	  "palcli": {
+		"script-ref": "tutorials/devoxxma2024-jbang/paltools/palcli.java",
+		"description": "Palindrome tester CLI"
+	  },
+    "palqrest": {
+		"script-ref": "tutorials/devoxxma2024-jbang/paltools/palqrest.java",
+		"description": "Palindrome tester Quarkus Rest API"
+	  }
+	}
+}

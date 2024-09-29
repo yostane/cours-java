@@ -34,8 +34,29 @@
 
 - List templates: `jbang template list`
 - picocli script: `jbang init -t cli hellocli.java`
-- Quarkus signle file API: `jbang init -t qrest helloqrest.java`
--
+- Quarkus single file API: `jbang init -t qrest helloqrest.java`
+    - Add json parsing: `//DEPS io.quarkus:quarkus-resteasy-jsonb`
+    - Add imports `import javax.ws.rs.GET; import javax.ws.rs.Path; import javax.ws.rs.Produces; import javax.ws.rs.core.MediaType;`
+    - Add implementation
+    ```java
+    @Path("/palindrome")
+    @ApplicationScoped
+    public class palqrest {
+        @GET
+        @Produces(MediaType.APPLICATION_JSON)
+        public Map<String, String> isPalidrome(@QueryParam("input") String input) {
+            return Map.of("result",
+                    PalindromeService.isPalindrome(input) ? "Palindrome" : "Not Palindrome");
+        }
+    }
+    ```
+- Test the service: `jbang init -t junit@jbangdev file_to_test.java`
+
+## Catalog
+
+- Create catalog: `jbang init -t jbang-catalog catalog`
+- Copy `jb-catalog.json` to the root folder of your repository.
+- Copy the `.github` folder to the root folder of your repository.
 
 > 💡 Jbang supports external sources and files with `//SOURCES` and `//FILES` directives
 

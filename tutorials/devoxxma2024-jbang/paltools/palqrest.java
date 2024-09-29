@@ -21,9 +21,6 @@ import jakarta.ws.rs.core.MediaType;
 
 import java.util.Map;
 
-record Result(String message) {
-}
-
 @Path("/palindrome")
 @ApplicationScoped
 public class palqrest {
