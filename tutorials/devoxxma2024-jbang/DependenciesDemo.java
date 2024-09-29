@@ -5,7 +5,6 @@ import com.github.lalyos.jfiglet.FigletFont;
 import static java.lang.System.*;
 
 public class DependenciesDemo {
-
     public static void main(String... args) throws Exception {
         out.println(FigletFont.convertOneLine("Hello DevoxxMA"));
     }

@@ -9,7 +9,7 @@
 ## Getting started
 
 - Create a script: `jbang init helloworld.java`
-- macOS and Linux: make the script executable `chmod +x helloworld.java`
+- Make the script executable on macOS and Linux: `chmod +x helloworld.java`
 - Run: `./helloworld.java` or on Windows `jbang helloworld.java`
     - Native Image: `jbang --native helloworld.java`
 - Export
@@ -30,13 +30,6 @@
     - Inline scripts `jbang -c 'System.out.println("Inline Java ☕ yay!")'`
 - Run Java and JShell codeblocks in markdown `jband my_markdown.md`
 
-## Other JDK languages
-
-- Kotlin support `jbang init -t hello.kt filename.kt`
-    - More features compared to Kotlin script `kts` (deps, etc.)
-- Groovy support `jbang init -t hello.groovy filename.groovy`
-    - Set Groovy version `//GROOVY 3.0.19`
-
 ## App Store
 
 - [HanSolo/jbang-catalog](https://github.com/HanSolo/jbang-catalog/blob/390effcbf265f240bfdc229b75b57617193da067/jbang-catalog.json)
@@ -52,6 +45,13 @@
 - Generate script with OpenAI (experimental) and requires OpenAI API key
     - `jbang --preview --verbose init ImageProcessor.java "Write a Java program that counts the number of people in an image with OpenCV`
     - If you use other providers,`mods` can be used instead : ``
+
+## Other languages
+
+- Kotlin support `jbang init -t hello.kt filename.kt`
+    - More features compared to Kotlin script `kts` (deps, etc.)
+- Groovy support `jbang init -t hello.groovy filename.groovy`
+    - Set Groovy version `//GROOVY 3.0.19`
 
 ## Additional info
 
