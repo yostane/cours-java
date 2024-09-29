@@ -14,7 +14,7 @@ Author: Yassine Benabbas
 
 ## Getting started
 
-- Create a script: `jbang init helloworld.java`
+- Create a script 📜: `jbang init helloworld.java`
 - Make the script executable on macOS and Linux: `chmod +x helloworld.java`
 - Run: `./helloworld.java` or on Windows `jbang helloworld.java`
   - Native Image: `jbang --native helloworld.java`
@@ -44,27 +44,43 @@ Author: Yassine Benabbas
     - Add json parsing: `//DEPS io.quarkus:quarkus-resteasy-jsonb`
     - Add imports `import javax.ws.rs.GET; import javax.ws.rs.Path; import javax.ws.rs.Produces; import javax.ws.rs.core.MediaType;`
     - Add implementation
-    ```java
-    @Path("/palindrome")
-    @ApplicationScoped
-    public class palqrest {
-        @GET
-        @Produces(MediaType.APPLICATION_JSON)
-        public Map<String, String> isPalidrome(@QueryParam("input") String input) {
-            return Map.of("result",
-                    PalindromeService.isPalindrome(input) ? "Palindrome" : "Not Palindrome");
+        ```java
+        @Path("/palindrome")
+        @ApplicationScoped
+        public class palqrest {
+            @GET
+            @Produces(MediaType.APPLICATION_JSON)
+            public Map<String, String> isPalidrome(@QueryParam("input") String input) {
+                return Map.of("result",
+                        PalindromeService.isPalindrome(input) ? "Palindrome" : "Not Palindrome");
+            }
         }
-    }
-    ```
+        ```
 - Test the service: `jbang init -t junit@jbangdev file_to_test.java`
+
+> 💡 Jbang supports external sources and files with `//SOURCES` and `//FILES` directives
 
 ## Catalog
 
-- Create catalog: `jbang init -t jbang-catalog catalog`
-- Copy `jb-catalog.json` to the root folder of your repository.
-- Copy the `.github` folder to the root folder of your repository.
-
-> 💡 Jbang supports external sources and files with `//SOURCES` and `//FILES` directives
+- Create 📚 catalog: `jbang init -t jbang-catalog catalog`
+- Copy the `.github` folder to the root folder of your repository
+- Copy `jb-catalog.json` to the root folder of your repository
+    ```json
+    {
+        "catalogs": {},
+        "aliases": {
+        "palcli": {
+            "script-ref": "tutorials/devoxxma2024-jbang/paltools/palcli.java",
+            "description": "Palindrome tester CLI"
+        },
+        "palqrest": {
+            "script-ref": "tutorials/devoxxma2024-jbang/paltools/palqrest.java",
+            "description": "Palindrome tester Quarkus Rest API"
+        }
+        }
+    }
+    ```
+- Test the catalog: `jbang palcli@yostane/cours-java madam` and `jbang palqrest@yostane/cours-java`
 
 ## App Store
 

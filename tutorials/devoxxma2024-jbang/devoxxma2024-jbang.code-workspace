@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "basic"
+		},
+		{
+			"path": "other_formats"
+		},
+		{
+			"path": "paltools"
+		}
+	],
+	"settings": {}
+}
