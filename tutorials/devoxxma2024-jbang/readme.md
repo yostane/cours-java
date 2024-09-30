@@ -40,7 +40,7 @@ Author: Yassine Benabbas
 
 - List templates: `jbang template list`
 - picocli script: `jbang init -t cli hellocli.java`
-- Quarkus single file API: `jbang init -t qrest helloqrest.java`
+- Quarkus single file REST API: `jbang init -t qrest helloqrest.java`
     - Add json parsing: `//DEPS io.quarkus:quarkus-resteasy-jsonb`
     - Add imports `import javax.ws.rs.GET; import javax.ws.rs.Path; import javax.ws.rs.Produces; import javax.ws.rs.core.MediaType;`
     - Add implementation
@@ -56,6 +56,7 @@ Author: Yassine Benabbas
             }
         }
         ```
+- Run in dev mode `jbang --fresh -Dquarkus.dev helloqrest.java`, or in pwsh ```jbang --fresh `-Dquarkus.dev helloqrest.java``` (💡 use `--fresh` when switching from dev and prod mode)
 - Test the service: `jbang init -t junit@jbangdev file_to_test.java`
 
 > 💡 Jbang supports external sources and files with `//SOURCES` and `//FILES` directives
@@ -92,11 +93,21 @@ Author: Yassine Benabbas
   - `jbang cowsay@ricksbrown/cowsay -f dragon 🔥`
   - `jbang cowsay@ricksbrown/cowsay -f vader-koala "I am your father"`
 
-## Other features
+## JavaFX (openjfx)
 
-- Generate script with OpenAI (experimental) and requires OpenAI API key
+- UI Toolkit [openjfx.io](https://openjfx.io/)
+- 
+- [More beautiful example](https://gist.github.com/FDelporte/c69a02c57acc892b4c996a9779d4f830) `jbang https://gist.github.com/FDelporte/c69a02c57acc892b4c996a9779d4f830`
+
+
+## Other and experimental features
+
+- [File configuration](https://www.jbang.dev/documentation/guide/latest/config.html)
+- [Caching](https://www.jbang.dev/documentation/guide/latest/caching.html)
+- [JBang wrapper](https://www.jbang.dev/documentation/guide/latest/cli/jbang-wrapper.html)
+- 🧪 Generate script with OpenAI (experimental) and requires OpenAI API key
   - `jbang --preview --verbose init ImageProcessor.java "Write a Java program that counts the number of people in an image with OpenCV`
-  - If you use other providers,`mods` can be used instead : ``
+  - If you use other providers,[mods](https://github.com/charmbracelet/mods) can be used instead
 
 ## Other languages
 
@@ -124,3 +135,4 @@ Author: Yassine Benabbas
 - [fusesource/jansi](https://github.com/fusesource/jansi)
 - [Java 23 Implicitly Declared Classes and Instance Main Methods](https://docs.oracle.com/en/java/javase/23/language/implicitly-declared-classes-and-instance-main-methods.html)
 - [baeldung.com/jbang](https://www.baeldung.com/jbang-guide)
+- [JBang OpenAI example](https://www.infoq.com/news/2023/06/jbang-107/)
