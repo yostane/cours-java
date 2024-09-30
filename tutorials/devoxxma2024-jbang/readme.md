@@ -96,7 +96,7 @@ Author: Yassine Benabbas
 ## JavaFX (openjfx)
 
 - UI Toolkit [openjfx.io](https://openjfx.io/)
-- 
+- [Basic window](./javafx/hellojfx.java)
 - [More beautiful example](https://gist.github.com/FDelporte/c69a02c57acc892b4c996a9779d4f830) `jbang https://gist.github.com/FDelporte/c69a02c57acc892b4c996a9779d4f830`
 
 
