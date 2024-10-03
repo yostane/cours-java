@@ -1,7 +1,5 @@
 # Jbang @ DeovvMa 2024
 
-![jbang logo](./assets/jbang-logo.png)
-
 Author: Yassine Benabbas - DevRel @ Worldline, Teacher and member of the LAUG
 
 ## Easy Setup
@@ -28,14 +26,31 @@ Author: Yassine Benabbas - DevRel @ Worldline, Teacher and member of the LAUG
 - Basic JDK management `jbang jdk list`, `jbang jdk install 23`, `jbang jdk use 23`
 - Dependencies
   - `//DEPS com.github.lalyos:jfiglet:0.0.8` (Gradle style).
-  - Many [other possibilities](https://www.jbang.dev/documentation/guide/latest/dependencies.html)
+  - Many [other possibilities](https://www.jbang.dev/documentation/guide/latest/dependencies.html) (fatjar, GitHub,
+      `@Grab`)
 
 ## Templates
 
 - List templates: `jbang template list`
 - picocli script: `jbang init -t cli hellocli.java`
 - Quarkus single file REST API: `jbang init -t qrest helloqrest.java`
-- Generate test file: `jbang init -t junit@jbangdev file_to_test.java`
+    - Add json parsing: `//DEPS io.quarkus:quarkus-resteasy-jsonb`
+    - Add imports `import javax.ws.rs.GET; import javax.ws.rs.Path; import javax.ws.rs.Produces; import javax.ws.rs.core.MediaType;`
+    - Add implementation
+        ```java
+        @Path("/palindrome")
+        @ApplicationScoped
+        public class palqrest {
+            @GET
+            @Produces(MediaType.APPLICATION_JSON)
+            public Map<String, String> isPalidrome(@QueryParam("input") String input) {
+                return Map.of("result",
+                        PalindromeService.isPalindrome(input) ? "Palindrome" : "Not Palindrome");
+            }
+        }
+        ```
+- Run in dev mode `jbang --fresh -Dquarkus.dev helloqrest.java`, or in pwsh ```jbang --fresh `-Dquarkus.dev helloqrest.java``` (💡 use `--fresh` when switching from dev and prod mode)
+- Test the service: `jbang init -t junit@jbangdev file_to_test.java`
 
 > 💡 Jbang supports external sources and files with `//SOURCES` and `//FILES` directives
 
@@ -43,15 +58,33 @@ Author: Yassine Benabbas - DevRel @ Worldline, Teacher and member of the LAUG
 
 - Create 📚 catalog: `jbang init -t jbang-catalog catalog`
 - Copy the `.github` folder to the root folder of your repository
-- Create `jb-catalog.json` to the root folder of your repository
+- Copy `jb-catalog.json` to the root folder of your repository
+    ```json
+    {
+        "catalogs": {},
+        "aliases": {
+        "palcli": {
+            "script-ref": "tutorials/devoxxma2024-jbang/paltools/palcli.java",
+            "description": "Palindrome tester CLI"
+        },
+        "palqrest": {
+            "script-ref": "tutorials/devoxxma2024-jbang/paltools/palqrest.java",
+            "description": "Palindrome tester Quarkus Rest API"
+        }
+        }
+    }
+    ```
 - Test the catalog: `jbang palcli@yostane/cours-java madam` and `jbang palqrest@yostane/cours-java`
 
 ## App Store
 
-- [App Store](https://www.jbang.dev/appstore/)
+- [HanSolo/jbang-catalog](https://github.com/HanSolo/jbang-catalog/blob/390effcbf265f240bfdc229b75b57617193da067/jbang-catalog.json) (some scripts did not work)
+  - `jbang discocli@HanSolo/jbang-catalog`
 - Cowsay
   - `jbang cowsay@ricksbrown/cowsay MOO!`
-  - `jbang cowsay@ricksbrown/cowsay -f dragon "I'm Veldora Tempest!"`
+  - `jbang cowsay@ricksbrown/cowsay --cowthink Moo`
+  - `jbang cowsay@ricksbrown/cowsay -f dragon 🔥`
+  - `jbang cowsay@ricksbrown/cowsay -f vader-koala "I am your father"`
 
 ## JavaFX (openjfx)
 
