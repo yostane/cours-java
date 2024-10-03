@@ -1,4 +1,4 @@
-# Jbang @ DeovvMa 2024
+# Jbang @ DeoxxMa 2024
 
 ![jbang logo](./assets/jbang-logo.png)
 
@@ -6,9 +6,11 @@ Author: Yassine Benabbas - DevRel @ Worldline, Teacher and member of the LAUG
 
 ## Easy Setup
 
-- Windows via scoop: `scoop install jbang`
-- Linux and macOS via SDKMAN: `sdk install jbang`
-- Other [setup methods](https://www.jbang.dev/download/)
+- [Setup methods](https://www.jbang.dev/download/)
+    - Windows via scoop: `scoop install jbang`
+    - Linux and macOS via SDKMAN: `sdk install jbang`
+- [VSCode IDE extension](https://marketplace.visualstudio.com/items?itemName=jbangdev.jbang-vscode)
+    - [Other IDEs](https://www.jbang.dev/documentation/guide/latest/editing.html#ide-support)
 
 ## Getting started
 
@@ -28,7 +30,8 @@ Author: Yassine Benabbas - DevRel @ Worldline, Teacher and member of the LAUG
 - Basic JDK management `jbang jdk list`, `jbang jdk install 23`, `jbang jdk use 23`
 - Dependencies
   - `//DEPS com.github.lalyos:jfiglet:0.0.8` (Gradle style).
-  - Many [other possibilities](https://www.jbang.dev/documentation/guide/latest/dependencies.html)
+  - Other [types of DEPS](https://www.jbang.dev/documentation/guide/latest/dependencies.html)
+- [Example](./basic/DependenciesDemo.java)
 
 ## Templates
 
@@ -36,15 +39,18 @@ Author: Yassine Benabbas - DevRel @ Worldline, Teacher and member of the LAUG
 - picocli script: `jbang init -t cli hellocli.java`
 - Quarkus single file REST API: `jbang init -t qrest helloqrest.java`
 - Generate test file: `jbang init -t junit@jbangdev file_to_test.java`
+- Example: [cli](./paltools/palcli.java), [service](./paltools/PalindromeService.java), [api](./paltools/palqrest.java), [test](./paltools/PalindromeServiceTest.java)
 
 > 💡 Jbang supports external sources and files with `//SOURCES` and `//FILES` directives
 
 ## Catalog
 
-- Create 📚 catalog: `jbang init -t jbang-catalog catalog`
-- Copy the `.github` folder to the root folder of your repository
 - Create `jb-catalog.json` to the root folder of your repository
-- Test the catalog: `jbang palcli@yostane/cours-java madam` and `jbang palqrest@yostane/cours-java`
+  - [Example](https://github.com/yostane/cours-java/blob/main/jbang-catalog.json)
+- Run scripts from the catalog `jbang script@ghuser/repo`: 
+    - `jbang palcli@yostane/cours-java madam`
+    - `jbang palqrest@yostane/cours-java`
+    - `jbang hellojfx@yostane/cours-java`
 
 ## App Store
 
@@ -59,17 +65,17 @@ Author: Yassine Benabbas - DevRel @ Worldline, Teacher and member of the LAUG
 - [Basic window](./javafx/hellojfx.java)
 - [More beautiful example](https://gist.github.com/FDelporte/c69a02c57acc892b4c996a9779d4f830) `jbang https://gist.github.com/FDelporte/c69a02c57acc892b4c996a9779d4f830`
 
-
-
 ## Other languages
 
 - Kotlin support `jbang init -t hello.kt filename.kt`
   - More features compared to Kotlin script `kts` (deps, etc.)
+  - [Example](./other_formats/hellokotlin02.kt)
 - Groovy support `jbang init -t hello.groovy filename.groovy`
-  - Set Groovy version `//GROOVY 3.0.19`
-- JShell support (.jsh or .jshell extension)
-  - Inline scripts `jbang -c 'System.out.println("Inline Java ☕ yay!")'`
+  - [Example](./other_formats/hello.groovy)
+- JShell support (.jsh or .jshell extension) and inline scripts `jbang -c 'System.out.println("Inline Java ☕ yay!")'`
+    - [Example](./other_formats/jshdemo.jsh)
 - Run Java and JShell codeblocks in markdown `jband my_markdown.md`
+    - [Example](./other_formats/md_with_code.md)
 
 ## Other and experimental features
 
