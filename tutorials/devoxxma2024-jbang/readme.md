@@ -1,10 +1,6 @@
 # Jbang @ DeovvMa 2024
 
-Author: Yassine Benabbas
-
-- Short link: [wrl.li/jbang-devoxxma24](https://wrl.li/jbang-devoxxma24)
-
-![qrcode](./qrcode.png)
+Author: Yassine Benabbas - DevRel @ Worldline, Teacher and member of the LAUG
 
 ## Easy Setup
 
@@ -32,9 +28,6 @@ Author: Yassine Benabbas
   - `//DEPS com.github.lalyos:jfiglet:0.0.8` (Gradle style).
   - Many [other possibilities](https://www.jbang.dev/documentation/guide/latest/dependencies.html) (fatjar, GitHub,
       `@Grab`)
-- JShell support (.jsh or .jshell extension)
-  - Inline scripts `jbang -c 'System.out.println("Inline Java ☕ yay!")'`
-- Run Java and JShell codeblocks in markdown `jband my_markdown.md`
 
 ## Templates
 
@@ -100,6 +93,17 @@ Author: Yassine Benabbas
 - [More beautiful example](https://gist.github.com/FDelporte/c69a02c57acc892b4c996a9779d4f830) `jbang https://gist.github.com/FDelporte/c69a02c57acc892b4c996a9779d4f830`
 
 
+
+## Other languages
+
+- Kotlin support `jbang init -t hello.kt filename.kt`
+  - More features compared to Kotlin script `kts` (deps, etc.)
+- Groovy support `jbang init -t hello.groovy filename.groovy`
+  - Set Groovy version `//GROOVY 3.0.19`
+- JShell support (.jsh or .jshell extension)
+  - Inline scripts `jbang -c 'System.out.println("Inline Java ☕ yay!")'`
+- Run Java and JShell codeblocks in markdown `jband my_markdown.md`
+
 ## Other and experimental features
 
 - [File configuration](https://www.jbang.dev/documentation/guide/latest/config.html)
@@ -108,13 +112,6 @@ Author: Yassine Benabbas
 - 🧪 Generate script with OpenAI (experimental) and requires OpenAI API key
   - `jbang --preview --verbose init ImageProcessor.java "Write a Java program that counts the number of people in an image with OpenCV`
   - If you use other providers,[mods](https://github.com/charmbracelet/mods) can be used instead
-
-## Other languages
-
-- Kotlin support `jbang init -t hello.kt filename.kt`
-  - More features compared to Kotlin script `kts` (deps, etc.)
-- Groovy support `jbang init -t hello.groovy filename.groovy`
-  - Set Groovy version `//GROOVY 3.0.19`
 
 ## Additional info
 
@@ -127,6 +124,12 @@ Author: Yassine Benabbas
 - Still young but very promising and can be used for many use cases
 - Templating, AppStore and Catalogs add a layer of sharing and contribution
 - Java can also Do single file APIs, CLIs, and more 🎉 
+
+## Content
+
+- Short link: [wrl.li/jbang-devoxxma24](https://wrl.li/jbang-devoxxma24)
+
+![qrcode](./assets/qrcode.png)
 
 ## Credits and resources
 
