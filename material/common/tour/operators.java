@@ -2,7 +2,7 @@
 
 import static java.lang.System.*;
 
-public class rappels {
+public class operators {
 
   public static void main(String... args) {
     // unary operator: takes one operand and return a value

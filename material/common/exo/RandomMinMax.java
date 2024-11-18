@@ -17,7 +17,7 @@ public class RandomMinMax {
       min = number < min ? number : min;
       max = number > max ? number : max;
     }
-    System.out.println(STR."min: \{ min }, max: \{ max }");
+    System.out.println(String.format("min: %d, max: %d", min, max));
   }
 
   public static void main(String... args) {
@@ -25,7 +25,7 @@ public class RandomMinMax {
     int[] numbers = new int[10];
     for (int i = 0; i < numbers.length; i++) {
       numbers[i] = generator.nextInt();
-      System.out.print(STR."\{numbers[i]}, ");
+      System.out.print(String.format("%d, ", numbers[i]));
     }
     System.out.println();
     printMinMax(numbers);

@@ -1,5 +1,7 @@
 # Exercices série 3
 
+Streams et Null safety
+
 !!! warning "Consignes"
 
     - Ne pas de faire aider par des IA ou genAI
@@ -13,7 +15,7 @@
 -   Supposons qu'on ait deux cercles : un cercle de centre A et de rayon Ra, et un cercle de centre B et de rayon Rb. Les coordonnées de A sont notées (xa, ya) et les coordonnées de B sont notées (xb, yb). On souhaite écrire un algorithme (très simple) permettant de dire si les deux cercles se rentrent dedans. La distance entre les deux centres A et B est: `sqrt((xb-xa)² + (yb-ya)²)`
     -   Donner la condition qui permet de savoir s’il y a collision (ou pas) entre les cercles
     -   Exprimer cette condition sans racine carrée
-    -   Ecrire une fonction `isCollision` qui prend les informations de deux cercles en arguments et renvoie “true” s’il y a collision entre les deux cercles, sinon false.
+    -   Ecrire une fonction `isCollision` qui prend les informations de deux cercles en arguments et renvoie `true` s’il y a collision entre les deux cercles, sinon `false`.
     -   Faire cet exercice en définissant une classe Circle et `isCollision` comme une méthode de cette classe
 
 ??? "Random min and max"
@@ -82,8 +84,6 @@ Pour cet exercice, créer le projet avec `gradle init` et utiliser les annotatio
     -   Si l'utilisateur saisit `exit`, le programme s'arrête.
     -   Si l'utilisateur saisit un entier, sa valeur est affichée et il est rajouté dans l'historique
 -   Gérer les exceptions, notamment celle liées aux erreurs de saisie
-
--   Astuces: utiliser `STR.""` pour formater vos Chaînes de caractères.
 
 ```sh title="exemple d'exécution"
 #  '>' signifie que c'est une entrée de l'utilisateur. Ce n'est pas un symble à inclure dans votre saisie

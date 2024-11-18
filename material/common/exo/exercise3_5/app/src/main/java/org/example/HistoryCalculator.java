@@ -18,19 +18,18 @@ public class HistoryCalculator<Calculator extends AbstractIntCalculator> {
 
   public int compute(@Nonnull String line) throws IllegalArgumentException {
     int result = this.calculator.computeFromString(line);
-    this.history.add(STR."\{line} = \{result}");
+    this.history.add(String.format("%s = %d", line, result));
     return result;
   }
 
   @Nonnull
-  public List<String> getHistory(){
+  public List<String> getHistory() {
     return this.history;
   }
 
   @Nonnull
-  public List<String> filterHistoryByOperator(char operator){
+  public List<String> filterHistoryByOperator(char operator) {
     return this.history.stream().filter(
-      line -> line.chars().anyMatch(c -> c == operator)
-    ).toList();
+        line -> line.chars().anyMatch(c -> c == operator)).toList();
   }
 }

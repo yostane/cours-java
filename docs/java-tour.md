@@ -14,6 +14,12 @@ tour/hello.java
 --8<--
 ```
 
+```java
+--8<--
+tour/operators.java
+--8<--
+```
+
 ## Classes, héritage et interfaces
 
 ```java
@@ -35,14 +41,6 @@ tour/GenericsDemo.java
 ```java
 --8<--
 tour/CollectionDemo.java
---8<--
-```
-
-## Streams
-
-```java
---8<--
-tour/StreamDemo.java
 --8<--
 ```
 
@@ -97,6 +95,14 @@ public interface BiFunction<T, U, R> {
 public interface Predicate<T> {
     boolean test(T t);
 }
+```
+
+## Streams
+
+```java
+--8<--
+tour/StreamDemo.java
+--8<--
 ```
 
 ## Null safety
