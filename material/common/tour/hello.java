@@ -40,6 +40,5 @@ public class hello {
     c.add();
 
     Calculator.multiply(10, 1);
-    Calculator.PI
   }
 }
