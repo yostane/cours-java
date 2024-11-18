@@ -99,11 +99,15 @@ public interface Predicate<T> {
 
 ## Streams
 
+Permettent de manipuler des collections de tailles arbitraires de manière déclarative.
+
 ```java
 --8<--
 tour/StreamDemo.java
 --8<--
 ```
+
+Une [documentation plus complète est proposée le site de baeldung](https://www.baeldung.com/java-8-streams)
 
 ## Null safety
 

@@ -1,4 +1,4 @@
-# Exercices série 1
+# Exercices initiaux
 
 !!! warning "Consignes"
 

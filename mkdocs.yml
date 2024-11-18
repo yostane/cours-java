@@ -10,12 +10,14 @@ extra:
       link: https://github.com/yostane
 
 nav:
-  - Introduction: index.md
-  - Tour du langage: java-tour.md
-  - Exercices Série 1: java-exercices-1.md
-  - Exercices Série 2: java-exercices-2.md
-  - Exercices Série 3: java-exercices-3.md
-  - JEE: jee.md
+  - index.md
+  - java-tour.md
+  - Exercices:
+    - java-exercices-1.md
+    - java-exercices-2.md
+    - java-exercices-3.md
+    - java-exercices-4.md
+  - jee.md
 
 plugins:
   - search
