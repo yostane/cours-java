@@ -39,16 +39,6 @@ record VideoGame(String name, int releaseYear, String publisher) implements Ente
   }
 }
 
-int compareInts(int a, int b) {
-  if (a > b) {
-    return -1;
-  } else if (a == b) {
-    return 0;
-  } else {
-    return 1;
-  }
-}
-
 public class VideoGameCollectionWithRecords {
 
   public static void main(String... args) {
@@ -122,13 +112,14 @@ public class VideoGameCollectionWithRecords {
     System.out.println(Joiner.on(",").join(minYearVideosGames));
 
     System.out.println("\nQ5 - Nombre de jeux de chaque éditeur : ");
-    var publishers = games.stream().map(g -> g.publisher()).distinct().toList();
-
     var groupedGamesByPublishers = games.stream()
         .collect(Collectors.groupingBy((g) -> g.publisher()))
         .entrySet().stream()
         .map((entry) -> new AbstractMap.SimpleEntry<String, Integer>(entry.getKey(), entry.getValue().size())).toList();
+    var groupedGamesByPublishers2 = games.stream()
+        .collect(Collectors.groupingBy(VideoGame::publisher, Collectors.counting()));
     System.out.println(Joiner.on(",").join(groupedGamesByPublishers));
-
+    System.out.println(Joiner.on(",").join(groupedGamesByPublishers2.entrySet()));
+    groupedGamesByPublishers2.forEach((k, v) -> System.out.println(k + " number of games: " + v));
   }
 }
