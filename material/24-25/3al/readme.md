@@ -17,3 +17,7 @@ CRUD signifie Create, Read, Update, Delete. Votre application doit permettre de 
 - Associer une image à chaque élément. (1)
 - Ajouter une barre de recherche qui permet de filtrer les éléments. (1)
 - Utiliser les streams pour manipuler les données (toute boucle qui aurait pu être remplacée par un stream sera pénalisée).
+
+### Liens
+
+[jenkov.com tutorials](https://jenkov.com/tutorials/javafx/index.html)

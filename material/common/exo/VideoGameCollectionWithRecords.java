@@ -121,5 +121,12 @@ public class VideoGameCollectionWithRecords {
     System.out.println(Joiner.on(",").join(groupedGamesByPublishers));
     System.out.println(Joiner.on(",").join(groupedGamesByPublishers2.entrySet()));
     groupedGamesByPublishers2.forEach((k, v) -> System.out.println(k + " number of games: " + v));
+
+    // Map of first game for each published
+    var firstGameByPublishers = games.stream().collect(
+        Collectors.groupingBy(VideoGame::publisher,
+            Collectors.mapping(VideoGame::releaseYear, Collectors.minBy(Comparator.comparingInt(year -> year)))));
+    System.out.println("\nQ5 - Année du premier jeu de chaque éditeur : ");
+    System.out.println(Joiner.on(",").join(firstGameByPublishers.entrySet()));
   }
 }
