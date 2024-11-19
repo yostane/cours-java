@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "name": "docs",
+      "path": "docs"
+    },
+    {
+      "name": "tour",
+      "path": "material/common/tour"
+    },
+    {
+      "name": "exo",
+      "path": "material/common/exo"
+    }
+  ],
+  "settings": {
+    "java.compile.nullAnalysis.mode": "automatic"
+  }
+}

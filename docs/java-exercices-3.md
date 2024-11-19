@@ -35,6 +35,12 @@
     --8<--
     ```
 
+    ```java
+    --8<--
+    exo/VideoGameCollectionWithRecords.java
+    --8<--
+    ```
+
 
 ## Exercice 2
 
