@@ -15,10 +15,10 @@
     -   Console: `name: Another 16 bit console`, `releaseYear: 1991`, `companyName: Nintendo`
     -   Console: `name: Awesome 3D console`, `releaseYear: 1996`, `companyName: Sony`
     -   Console: `name: 3D console with weird joystick`, `releaseYear: 1997`, `companyName: Nintendo`
-    -   Jeu: `name: Alex Kidd`, `releaseYear: 1988`, `editor: SEGA`
-    -   Jeu: `name: Sonic`, `releaseYear: 1990`, `editor: SEGA`
-    -   Jeu: `name: Mario RPG`, `releaseYear: 1996`, `editor: Nintendo`
-    -   Jeu: `name: Final Fantasy 6`, `releaseYear: 1994`, `editor: Square`
+    -   Jeu: `name: Alex Kidd`, `releaseYear: 1988`, `publisher: SEGA`
+    -   Jeu: `name: Sonic`, `releaseYear: 1990`, `publisher: SEGA`
+    -   Jeu: `name: Mario RPG`, `releaseYear: 1996`, `publisher: Nintendo`
+    -   Jeu: `name: Final Fantasy 6`, `releaseYear: 1994`, `publisher: Square`
 -   En utilisant les streams:
     -   Afficher les jeux sortis à partir de l'année 1990 triés par ordre croissant de l'année.
     -   Afficher le nom des consoles de la compagnie SEGA.
