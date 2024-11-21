@@ -28,6 +28,7 @@ public class Person {
     setName(name);
     setJob(job);
     setMissions(missions);
+    setHealthStatus(healthStatus);
   }
 
   @Override
@@ -35,21 +36,37 @@ public class Person {
     return "Person [name=" + getName() + ", job=" + getJob() + ", missions:" + Joiner.on(",").join(getMissions()) + "]";
   }
 
+  /**
+   * "Hello,world".split(",") -> ["Hello", "world"]
+   * 3 Familles de collections qui n'ont pas la même API: List, Stream, Arrays
+   * (avec les [])
+   */
   public List<String> getMissions() {
     return Arrays.asList(missions.get().split(","));
   }
 
   public void setMissions(List<String> missions) {
-    String missionAsString = Joiner.on(", ").join(missions);
+    String missionAsString = Joiner.on(",").join(missions);
     this.missions.set(missionAsString);
   }
 
+  /**
+   * Pour revenir à l'enum à partir d'une String, on utilise
+   * EnumType.valueOf("valeur en String l'enum")
+   * 
+   * @return
+   */
   public HealthStatus getHealthStatus() {
     return HealthStatus.valueOf(this.healthStatus.get());
   }
 
+  /**
+   * Pour trasformer une enum en String, on utilise toString
+   * 
+   * @param healthStatus
+   */
   public void setHealthStatus(HealthStatus healthStatus) {
-    this.healthStatus.set((healthStatus.toString()));
+    this.healthStatus.set(healthStatus.toString());
   }
 
   public String getName() {

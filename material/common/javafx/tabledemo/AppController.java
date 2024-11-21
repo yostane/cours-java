@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.random.RandomGenerator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
@@ -28,7 +29,19 @@ public class AppController {
   }
 
   private List<String> parseMissions() {
-    return Arrays.asList(missionsTextField.getText().split(","));
+    return Arrays.asList(missionsTextField.getText().split(";"));
+  }
+
+  private HealthStatus generateRandomHealth() {
+    int rand = RandomGenerator.getDefault().nextInt(0, 3);
+    switch (rand) {
+      case 0:
+        return HealthStatus.healthy;
+      case 1:
+        return HealthStatus.sick;
+      default:
+        return HealthStatus.recovering;
+    }
   }
 
   /**
@@ -38,13 +51,13 @@ public class AppController {
   @FXML
   public void initialize() {
     System.out.println("AppController.initialize");
-    this.tableView.getItems().add(new Person("Hello", "World", HealthStatus.healthy, parseMissions()));
+    this.tableView.getItems().add(new Person("Hello", "World", generateRandomHealth(), parseMissions()));
   }
 
   /** Va lier un évènement (#addPerson) dans le fxml à une fonction */
   @FXML
   public void addPerson() {
     System.out.println("AppController.addPerson");
-    tableView.getItems().add(new Person(nameTextField.getText(), "Doe", HealthStatus.sick, parseMissions()));
+    tableView.getItems().add(new Person(nameTextField.getText(), "Doe", generateRandomHealth(), parseMissions()));
   }
 }
