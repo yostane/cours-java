@@ -9,10 +9,15 @@
 
 <!-- xmlns permet de définir quelles balises le xml peut comporter -->
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0"
+  xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="AppController">
   <children>
-    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#addPerson" text="Add person" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-    <TableView fx:id="tableView" layoutX="19.0" layoutY="54.0" prefHeight="337.0" prefWidth="575.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0">
+    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#addPerson"
+      text="Add person" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+    <TableView fx:id="tableView" layoutX="19.0" layoutY="54.0" prefHeight="337.0" prefWidth="575.0"
+      AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+      AnchorPane.topAnchor="50.0">
       <columns>
         <TableColumn prefWidth="75.0" text="Name">
           <cellValueFactory>
@@ -26,6 +31,7 @@
         </TableColumn>
         <TableColumn prefWidth="75.0" text="Health">
           <cellValueFactory>
+            <!-- Le nom du champ privé -->
             <PropertyValueFactory property="healthStatus" />
           </cellValueFactory>
         </TableColumn>
@@ -37,6 +43,7 @@
       </columns>
     </TableView>
     <TextField fx:id="nameTextField" layoutX="103.0" layoutY="14.0" promptText="Name" />
-      <TextField fx:id="missionsTextField" layoutX="275.0" layoutY="14.0" promptText="Initial missions" />
+    <TextField fx:id="missionsTextField" layoutX="275.0" layoutY="14.0"
+      promptText="Initial missions" />
   </children>
 </AnchorPane>
