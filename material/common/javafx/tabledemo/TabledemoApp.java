@@ -23,15 +23,10 @@ public class TabledemoApp extends Application {
 
   @Override
   public void start(Stage stage) throws IOException {
-    AppController controller = null;
     try {
       final URL url = getClass().getResource("tabledemo.fxml");
       final FXMLLoader fxmlLoader = new FXMLLoader(url);
       final AnchorPane root = (AnchorPane) fxmlLoader.load();
-      controller = (AppController) fxmlLoader.getController();
-      if (controller == null) {
-        System.exit(1);
-      }
       scene = new Scene(root, 300, 250);
       stage.setScene(scene);
     } catch (IOException ex) {

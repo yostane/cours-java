@@ -1,4 +1,10 @@
 
+///usr/bin/env jbang "$0" "$@" ; exit $?
+
+//DEPS org.openjfx:javafx-controls:23
+//DEPS org.openjfx:javafx-graphics:23:${os.detected.jfxname}
+//DEPS org.openjfx:javafx-fxml:23
+
 //FILES JavaFX_Logo.png
 
 import java.net.URL;
