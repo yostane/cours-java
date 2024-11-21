@@ -3,9 +3,11 @@
 //DEPS org.openjfx:javafx-controls:23
 //DEPS org.openjfx:javafx-graphics:23:${os.detected.jfxname}
 //DEPS org.openjfx:javafx-fxml:23
+//DEPS com.google.guava:guava:33.1.0-jre
 
 //SOURCES Person.java
 //SOURCES AppController.java
+//SOURCES HealthStatus.java
 
 //FILES tabledemo.fxml
 

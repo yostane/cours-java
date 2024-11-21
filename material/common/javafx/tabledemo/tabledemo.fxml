@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -9,30 +8,35 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <!-- xmlns permet de définir quelles balises le xml peut comporter -->
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0"
-  xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-  fx:controller="AppController">
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppController">
   <children>
-    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#addPerson"
-      text="Add person" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-    <Label layoutX="105.0" layoutY="19.0" text="Name:" AnchorPane.leftAnchor="105.0"
-      AnchorPane.topAnchor="19.0" />
-    <TableView fx:id="tableView" layoutX="19.0" layoutY="54.0" prefHeight="337.0" prefWidth="575.0"
-      AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
-      AnchorPane.topAnchor="50.0">
+    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#addPerson" text="Add person" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+    <TableView fx:id="tableView" layoutX="19.0" layoutY="54.0" prefHeight="337.0" prefWidth="575.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0">
       <columns>
-        <TableColumn prefWidth="75.0" text="name">
+        <TableColumn prefWidth="75.0" text="Name">
           <cellValueFactory>
             <PropertyValueFactory property="name" />
           </cellValueFactory>
         </TableColumn>
-        <TableColumn prefWidth="75.0" text="job">
+        <TableColumn prefWidth="75.0" text="Job">
           <cellValueFactory>
             <PropertyValueFactory property="job" />
           </cellValueFactory>
         </TableColumn>
+        <TableColumn prefWidth="75.0" text="Health">
+          <cellValueFactory>
+            <PropertyValueFactory property="healthStatus" />
+          </cellValueFactory>
+        </TableColumn>
+        <TableColumn prefWidth="75.0" text="Missions">
+          <cellValueFactory>
+            <PropertyValueFactory property="missions" />
+          </cellValueFactory>
+        </TableColumn>
       </columns>
     </TableView>
-    <TextField fx:id="nameTextField" layoutX="168.0" layoutY="15.0" promptText="Enter name" />
+    <TextField fx:id="nameTextField" layoutX="103.0" layoutY="14.0" promptText="Name" />
+      <TextField fx:id="missionsTextField" layoutX="275.0" layoutY="14.0" promptText="Initial missions" />
   </children>
 </AnchorPane>

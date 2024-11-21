@@ -1,3 +1,8 @@
+import java.util.Arrays;
+import java.util.List;
+
+import com.google.common.base.Joiner;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -16,15 +21,35 @@ public class Person {
    * les variables qui stockent ou permettent de gérer la valeur de la propriété
    */
   private final StringProperty job = new SimpleStringProperty("");
+  private final StringProperty healthStatus = new SimpleStringProperty(HealthStatus.healthy.toString());
+  private final StringProperty missions = new SimpleStringProperty("");
 
-  public Person(String name, String job) {
+  public Person(String name, String job, HealthStatus healthStatus, List<String> missions) {
     setName(name);
     setJob(job);
+    setMissions(missions);
   }
 
   @Override
   public String toString() {
-    return "Person [name=" + getName() + ", job=" + getJob() + "]";
+    return "Person [name=" + getName() + ", job=" + getJob() + ", missions:" + Joiner.on(",").join(getMissions()) + "]";
+  }
+
+  public List<String> getMissions() {
+    return Arrays.asList(missions.get().split(","));
+  }
+
+  public void setMissions(List<String> missions) {
+    String missionAsString = Joiner.on(", ").join(missions);
+    this.missions.set(missionAsString);
+  }
+
+  public HealthStatus getHealthStatus() {
+    return HealthStatus.valueOf(this.healthStatus.get());
+  }
+
+  public void setHealthStatus(HealthStatus healthStatus) {
+    this.healthStatus.set((healthStatus.toString()));
   }
 
   public String getName() {
