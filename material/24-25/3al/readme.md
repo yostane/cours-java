@@ -31,7 +31,7 @@ Vous pouvez utiliser la genAI pour des questions précises mais pas:
   - Afficher les éléments qu'on retrouve le plus souvent avec le nombre d'occurrences dans le champ de type liste (1).
   - Afficher toutes les éléments de tous les champs lites distincts (par exemple touts les mots clés) (0.5).
   - Par exemple: `Il y a 10 éléments, la plus longue chaine de caractères est '....' et a une longueur de 20 caractères, la date la plus récente est le 12/12/2022 correspond à la donnée dont l'id est ..., les éléments dont la date dépasse la date d'aujourd'hui sont: [element1, element2], les éléments dont le booléen est vrai sont: [element3, element4], les éléments qu'on retrouve le plus souvent dans le champ de type liste sont: ["perso", "anniversaire"] avec x occurences, tous les éléments de tous les champs lites distincts sont: ["perso", "anniversaire", "important", "hobby"]`. 
-- Utiliser les streams pour manipuler les données (toute boucle qui aurait pu être remplacée par un stream sera pénalisée). (3)
+- Utiliser les streams pour manipuler les données (toute boucle qui aurait pu être remplacée par un stream sera pénalisée). (2)
 
 ### Liens
 
